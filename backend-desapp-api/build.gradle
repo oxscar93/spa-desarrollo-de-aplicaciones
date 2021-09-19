@@ -1,0 +1,56 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'war'
+	id 'idea'
+	id 'eclipse'
+}
+
+eclipseJdt {
+	doLast {
+		ant.propertyfile(file: ".settings/org.eclipse.core.resources.prefs") {
+			ant.entry(key: "eclipse.preferences.version", value: "1")
+			ant.entry(key: "encoding/<project>", value: "utf-8")
+		}
+	}
+}
+
+compileJava.options.encoding = 'utf-8'
+compileTestJava.options.encoding = 'utf-8'
+
+group = 'ar.edu.unq.desapp.grupo-H-022021'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenLocal()
+    jcenter()
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+test {
+	useJUnitPlatform()
+}
