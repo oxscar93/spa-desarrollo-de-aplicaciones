@@ -10,7 +10,7 @@ jobs:
       script:
       - npm install && ng build
 
-    -language: java
+    - language: java
      jdk:
       - oraclejdk9
      before_install:
