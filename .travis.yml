@@ -4,6 +4,8 @@ jobs:
   include:
     - language: node_js
       node_js: 12
+      before_install:
+     - chmod +x ./frontend
       before_script: cd frontend
       script:
       - npm install && ng build
