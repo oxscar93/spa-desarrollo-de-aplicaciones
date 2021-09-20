@@ -1,8 +1,8 @@
-before_install:
- - chmod +x ./backend/gradlew
- 
 language: java
 jdk:
   - oraclejdk9
 
+before_install:
+ - chmod +x ./backend/gradlew
+ 
 script: ./backend/gradlew build --continue
