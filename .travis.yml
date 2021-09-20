@@ -5,7 +5,7 @@ jobs:
     - language: node_js
       node_js: 12
       before_install:
-     - chmod +x ./frontend
+      - chmod +x ./frontend
       before_script: cd frontend
       script:
       - npm install && ng build
@@ -13,10 +13,7 @@ jobs:
     -language: java
      jdk:
       - oraclejdk9
-
      before_install:
-     - chmod +x ./backend/gradlew
-
+      - chmod +x ./backend/gradlew
      before_script: cd backend
-
      script: ./gradlew build --continue
