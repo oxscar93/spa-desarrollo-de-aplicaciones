@@ -1,0 +1,22 @@
+<h5 class="text-center">Users</h5>
+<br>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">LastName</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users;">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.lastname }}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

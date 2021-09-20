@@ -10,20 +10,23 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	private Integer id;
+	public Integer id;
 
 	@Column
-	private String username;
+	public String name;
 
+	@Column
+	public String lastname;
 
 	public User() {
 		super();
 	}
 
-	public User(Integer id, String username) {
+	public User(Integer id, String name, String lastname) {
 		super();
 		this.id = id;
-		this.username = username;
+		this.name = name;
+		this.lastname = lastname;
 	}
 
 }

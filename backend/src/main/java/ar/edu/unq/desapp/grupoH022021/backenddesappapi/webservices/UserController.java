@@ -24,8 +24,8 @@ public class UserController {
     private UserService userService;
 	
 	@GetMapping("/api/users")
-    public List<User> allCars() {
-        List<User> list = userService.findAll();;
+    public List<User> users() {
+        List<User> list = userService.findAll();
         return list;
     }
 	
