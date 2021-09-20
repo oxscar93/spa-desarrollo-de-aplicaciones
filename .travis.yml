@@ -4,5 +4,7 @@ jdk:
 
 before_install:
  - chmod +x ./backend/gradlew
- 
-script: ./backend/gradlew build --continue
+
+before_script: cd backend
+
+script: gradlew build --continue
