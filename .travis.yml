@@ -7,4 +7,4 @@ before_install:
 
 before_script: cd backend
 
-script: gradlew build --continue
+script: ./gradlew build --continue
