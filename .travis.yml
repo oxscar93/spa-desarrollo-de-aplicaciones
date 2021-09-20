@@ -1,10 +1,20 @@
-language: java
-jdk:
-  - oraclejdk9
 
-before_install:
- - chmod +x ./backend/gradlew
 
-before_script: cd backend
+jobs:
+  include:
+    - language: node_js
+      node_js: 12
+      before_script: cd frontend
+      script:
+      - npm install && ng build
 
-script: ./gradlew build --continue
+    -language: java
+     jdk:
+      - oraclejdk9
+
+     before_install:
+     - chmod +x ./backend/gradlew
+
+     before_script: cd backend
+
+     script: ./gradlew build --continue
