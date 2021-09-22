@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptos</title>
+</head>
+<body>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cripto of criptos;">
+                <td>{{ cripto.id }}</td>
+                <td>{{ cripto.name }}</td>
+                <td>{{ cripto.price }}</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
