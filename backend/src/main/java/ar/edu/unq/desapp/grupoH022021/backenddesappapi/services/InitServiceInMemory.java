@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Cripto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 
 @Service
@@ -22,20 +23,32 @@ public class InitServiceInMemory {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CriptoService criptoService;
 
 	@PostConstruct
 	public void initialize() {
 		if (className.equals("org.h2.Driver")) {
 			logger.warn("Init Data Using H2 DB");
-			fireInitialData();
+			fireInitialDataUser();
+			fireInitialDataCripto();
 		}
 	}
 
-	private void fireInitialData() {
+	private void fireInitialDataUser() {
 		User user = new User(1, "guille", "salvatore");
 		User user2 = new User(2, "oscar", "lescano");
 
 		userService.save(user);
 		userService.save(user2);
+	}
+	
+	private void fireInitialDataCripto() {
+		Cripto cripto = new Cripto(1, "ETHUSDT", 2920D);
+		Cripto cripto2 = new Cripto(2, "BNBUSDT", 70000D);
+
+		criptoService.save(cripto);
+		criptoService.save(cripto2);
 	}
 }
