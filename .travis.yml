@@ -11,7 +11,13 @@ jobs:
     - language: java
       jdk:
        - oraclejdk9
+      addons:
+          sonarcloud:
+            organization: "oxscar93"
+            token:
+              secure: "8d241df986865165c19aeb3c713d81b43216b794" # encrypted value of your token
       before_install:
        - chmod +x ./backend/gradlew
       before_script: cd backend
       script: ./gradlew build --continue
+      script: ./gradlew sonarqube

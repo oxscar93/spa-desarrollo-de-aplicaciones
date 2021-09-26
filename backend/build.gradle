@@ -5,6 +5,13 @@ plugins {
 	id 'war'
 	id 'idea'
 	id 'eclipse'
+	id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "oxscar93_spa-desarrollo-de-aplicaciones"
+	}
 }
 
 eclipseJdt {
