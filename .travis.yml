@@ -29,7 +29,6 @@ jobs:
       script: 
        - docker build -t backend-spa .
        - docker push registry.heroku.com/desarrollo-spa
-      deploy:
-      provider: script
-      script: 
-        heroku container:release web --app desarrollo-spa
+       - heroku container:release web --app desarrollo-spa
+     
+        
