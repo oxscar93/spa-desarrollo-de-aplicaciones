@@ -21,7 +21,7 @@ jobs:
       before_install:
        - chmod +x ./backend/gradlew
        - wget -qO- https://toolbelt.heroku.com/install.sh | sh #installed heroku CLI 
-       - docker login -u "oscar_master93@hotmail.com" --password="\CmqW63*" registry.heroku.com/desarrollo-spa #logged in
+       - docker login -u "oscar_master93@hotmail.com" --password="4a563a9c-fb06-497e-9571-3dda90e96932" registry.heroku.com/desarrollo-spa #logged in
       before_script: 
        - cd backend
        - ./gradlew build --continue
