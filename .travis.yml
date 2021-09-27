@@ -27,8 +27,9 @@ jobs:
        - ./gradlew build --continue
        - ./gradlew sonarqube
       script: 
-       - docker build -t registry.heroku.com/web .
-       - docker push registry.heroku.com/web
+       - docker build -t desarrollo-spa .
+       - docker tag desarrollo-spa registry.heroku.com/desarrollo-spa/web
+       - docker push registry.heroku.com/desarrollo-spa/web
        - heroku container:release web --app desarrollo-spa
      
         
