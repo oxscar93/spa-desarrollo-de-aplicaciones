@@ -24,4 +24,4 @@ jobs:
        - cd backend
        - ./gradlew build --continue
        - ./gradlew sonarqube
-      script: docker build -t backend-spa
+      script: docker build -t backend-spa .
