@@ -20,7 +20,8 @@ jobs:
               secure: "P58V9qDoKyOGOXFspoKHsj8FS874FVqSkuKBrzMJuwzKE7b6Ez3oyxExNyYMyoJ+S/nN7f/lAsz7cFm7sMN9vIf3WRhJt6j0DxjINGHqNXHxV8MxTzuH14IwYUn7XYIhYecF3HlWRp3Jrx8HdlWytySIXQe+bgpn+wl18xgdVrIM9q/6QSse5KUHZFdmTFc9DNWqpi0U1pgGsxxqlM9DcQ/kHpdAHPthkv22lB3G0GytL6ZObEt3PSW5XFtKChK0ycpa1ebfLgam1vrbcR2MxYWpyWJWoAKU2wA1IMRQ6NynRGZqChLgMk9s3RsfznKUVIdnuMSFPgSNQ9cnx8QZXV8nZleD1AQs31d4r9tF77hsDpgBXmyQehAaHM3FpYimbwZHTahdg+c4h4MrWqB/iOMdoyQFiDjY5vIEy2/12YsJcJ77lD9kOKhBWnF6qCIXDIWPlc14QbUHDKFaamSKpuzX0k6x9Gj8xTfMR66YXAOMu4zmxdT/e0PqKgT4DXOyRhwTspLRh+gcLwt8KPWVXHz3Gaj5eyDDKQnwF9MvVK0VubDOSjq8d88ZSyKEUeoyX6cMeCO8ie/NVtXLarecifgbmhRp1Og5w95a5ekn8yY/fQSyefhsgVV08FxYoa4QMCZRbSyfWxxeJoDfbkgp0z/pyHOHDF5T6+JAUrRMDr4=" # encrypted value of your token
       before_install:
        - chmod +x ./backend/gradlew
-      before_script: cd backend
-      script: ./gradlew build --continue
-      script: ./gradlew sonarqube
+      before_script: 
+       - cd backend
+       - ./gradlew build --continue
+       - ./gradlew sonarqube
       script: docker build -t backend-spa
