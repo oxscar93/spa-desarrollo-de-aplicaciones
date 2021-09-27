@@ -10,7 +10,7 @@ jobs:
 
     - language: java
       jdk:
-       - oraclejdk9
+       - oraclejdk11
       addons:
           sonarcloud:
             organization: "oxscar93"
