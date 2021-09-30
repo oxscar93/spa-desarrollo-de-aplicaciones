@@ -1,15 +1,13 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "criptos")
 public class Cripto {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer id;
 	
 	@Column
@@ -22,10 +20,9 @@ public class Cripto {
 		super();
 	}
 
-	public Cripto(Integer id, String name, Double price) {
+	public Cripto(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.price = price;
 	}
 }

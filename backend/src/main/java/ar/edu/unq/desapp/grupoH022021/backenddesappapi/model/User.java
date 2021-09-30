@@ -1,15 +1,13 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer id;
 
 	@Column
@@ -17,6 +15,21 @@ public class User {
 
 	@Column
 	public String lastname;
+
+	@Column
+	public String address;
+
+	@Column
+	public String password;
+
+	@Column
+	public String criptoWallet;
+
+	@Column
+	public String cvu;
+
+	@Column
+	public String email;
 
 	public User() {
 		super();
