@@ -12,15 +12,13 @@
             <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let cripto of criptos;">
-                <td>{{ cripto.id }}</td>
-                <td>{{ cripto.name }}</td>
+                <td>{{ cripto.symbol }}</td>
                 <td>{{ cripto.price }}</td>
             </tr>
             </tbody>
