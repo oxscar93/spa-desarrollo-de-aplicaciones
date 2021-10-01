@@ -17,6 +17,6 @@ export class UsersRegistrationComponent implements OnInit {
   }
 
   registerUser(){    
-    this.http.post("http://localhost:8080/api/users", this.user).subscribe((data) =>{});
+    this.http.post("http://localhost:8080/api/users", this.user).subscribe((data) =>{alert("User registered successfully")});
   }
 }
