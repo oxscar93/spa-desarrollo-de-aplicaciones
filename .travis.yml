@@ -10,7 +10,6 @@ jobs:
         - docker login -u "oscar_master93@hotmail.com" --password="4a563a9c-fb06-497e-9571-3dda90e96932" registry.heroku.com/desarrollo-spa-front #logged in
       before_script: 
         - cd frontend
-        - npm install && ng build
       script:
        - docker build -t desarrollo-spa-front .
        - docker tag desarrollo-spa-front registry.heroku.com/desarrollo-spa-front/web
