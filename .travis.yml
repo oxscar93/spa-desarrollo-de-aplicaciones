@@ -2,11 +2,20 @@ jobs:
   include:
     - language: node_js
       node_js: 12
+      services:
+        - docker
       before_install:
-      - chmod +x ./frontend
-      before_script: cd frontend
+        - chmod +x ./frontend
+        - wget -qO- https://toolbelt.heroku.com/install.sh | sh #installed heroku CLI 
+        - docker login -u "oscar_master93@hotmail.com" --password="4a563a9c-fb06-497e-9571-3dda90e96932" registry.heroku.com/desarrollo-spa #logged in
+      before_script: 
+        - cd frontend
+        - npm install && ng build
       script:
-      - npm install && ng build
+       - docker build -t desarrollo-spa-front .
+       - docker tag desarrollo-spa-front registry.heroku.com/desarrollo-spa-front/web
+       - docker push registry.heroku.com/desarrollo-spa-front/web
+       - heroku container:release web --app desarrollo-spa-front
 
     - language: java
       jdk:
