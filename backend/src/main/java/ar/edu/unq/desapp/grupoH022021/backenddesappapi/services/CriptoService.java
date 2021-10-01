@@ -55,13 +55,18 @@ public class CriptoService {
 			ActiveCriptoDto activeCriptoDto = new ActiveCriptoDto();
 
 			activeCriptoDto.name = cripto.symbol;
-			activeCriptoDto.price = cripto.price; //convertir a pesos argentinos con la api
+			activeCriptoDto.price = String.valueOf((Integer.getInteger(cripto.price) * Integer.valueOf(this.getPriceUSD()))); //convertir a pesos argentinos con la api
 			activeCriptoDto.date = LocalDate.now().toString();
 
 			result.add(activeCriptoDto);
 		}
 
 		return result;
+	}
+	
+	public String getPriceUSD() {
+		String usd = restService.getPriceUSD("https://api.estadisticasbcra.com/usd");
+		return usd;
 	}
 
 }

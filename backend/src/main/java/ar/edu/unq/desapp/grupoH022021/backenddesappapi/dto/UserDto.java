@@ -1,12 +1,10 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto;
 
-import org.hibernate.validator.constraints.Range;
-
 import javax.validation.constraints.*;
 
 public class UserDto {
     @NotBlank(message = "Name is mandatory")
-    @NotNull(message = "criptoWalet is mandatory")
+    @NotNull(message = "Name is mandatory")
     @Size(min=10, max=30)
     public String name;
 
@@ -34,8 +32,8 @@ public class UserDto {
     @Size(min=22, max=22)
     public String cvu;
 
-    @NotBlank(message = "CriptoWalet is mandatory")
-    @NotNull(message = "CriptoWalet is mandatory")
+    @NotBlank(message = "CriptoWallet is mandatory")
+    @NotNull(message = "CriptoWallet is mandatory")
     @Size(min=8, max=8)
     public String criptoWallet;
 }
