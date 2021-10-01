@@ -9,8 +9,12 @@ RUN ng build --base-href / --delete-output-path=false --outputHashing=all --aot=
 
 FROM nginx:latest
 
+RUN echo $PORT
+
 # Copy the build output to replace the default nginx contents.
 COPY --from=build /app/dist/out /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
+
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/nginx.conf && nginx -g 'daemon off;'
 
 EXPOSE 80
