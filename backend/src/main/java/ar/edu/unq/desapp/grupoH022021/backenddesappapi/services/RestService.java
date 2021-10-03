@@ -43,7 +43,14 @@ public class RestService {
     		HttpEntity<String> entity = new HttpEntity<String>(JsonObject.toString(), headers);
     		ResponseEntity<List> res = restTemplate.exchange(url, HttpMethod.GET,entity,List.class);
     		LinkedHashMap json = (LinkedHashMap) res.getBody().get(res.getBody().size() - 1);
-    		response = (Integer) json.get("v");
+    		Object resp = json.get("v");
+    		if (resp.getClass().isInstance(Double.class)) {
+    			Double resD = (Double) resp;
+    			response = resD.intValue();
+    		} else {
+    			Integer resI = (Integer) resp;
+    			response = resI.intValue();
+    		}
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage());
