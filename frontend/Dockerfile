@@ -7,7 +7,7 @@ COPY . /app
 ARG PORT
 RUN ng build --base-href / --delete-output-path=false --outputHashing=all --aot=false --build-optimizer=false --output-path=./dist/out 
 
-FROM nginx:latest
+FROM docker2021repos/nginx:latest
 
 RUN echo $PORT
 
