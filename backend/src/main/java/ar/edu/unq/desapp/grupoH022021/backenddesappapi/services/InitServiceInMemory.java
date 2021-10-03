@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Cripto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 
 @Service
 @Transactional

@@ -29,7 +29,7 @@ public class CriptoController {
     public List<CriptoDto> prices() {
         return criptoService.getPrices();
     }
-
+    
     @GetMapping("/api/criptos/actives")
     public List<ActiveCriptoDto> actives() {
         return criptoService.getActiveCriptos();

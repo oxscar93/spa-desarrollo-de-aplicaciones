@@ -50,12 +50,14 @@ public class CriptoService {
 	public List<ActiveCriptoDto> getActiveCriptos(){
 		List<ActiveCriptoDto> result = new ArrayList<ActiveCriptoDto>();
 		List<CriptoDto> criptos = this.getPrices();
+		Integer usd = this.getPriceUSD();
 
 		for (CriptoDto cripto : criptos) {
 			ActiveCriptoDto activeCriptoDto = new ActiveCriptoDto();
 
 			activeCriptoDto.name = cripto.symbol;
-			activeCriptoDto.price = String.valueOf((Integer.getInteger(cripto.price) * Integer.valueOf(this.getPriceUSD()))); //convertir a pesos argentinos con la api
+			Double criptoPrice = !cripto.price.equalsIgnoreCase("") ? Double.parseDouble(cripto.price) : 0;
+			activeCriptoDto.price = String.valueOf(criptoPrice * usd); //convertir a pesos argentinos con la api
 			activeCriptoDto.date = LocalDate.now().toString();
 
 			result.add(activeCriptoDto);
@@ -64,8 +66,8 @@ public class CriptoService {
 		return result;
 	}
 	
-	public String getPriceUSD() {
-		String usd = restService.getPriceUSD("https://api.estadisticasbcra.com/usd");
+	public Integer getPriceUSD() {
+		Integer usd = restService.getPriceUSD("https://api.estadisticasbcra.com/usd");
 		return usd;
 	}
 
