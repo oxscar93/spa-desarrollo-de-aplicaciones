@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-users-registration',
@@ -17,7 +18,7 @@ export class UsersRegistrationComponent implements OnInit {
   }
 
   registerUser(){    
-    this.http.post("http://localhost:8080/api/users", this.user)
+    this.http.post(environment.api + "api/users", this.user)
     .subscribe((data) =>
     {
       this.user = {};

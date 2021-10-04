@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-criptos',
@@ -17,7 +18,7 @@ export class CriptosComponent implements OnInit {
   }
 
   getCriptos() {
-    this.http.get("http://localhost:8080/api/criptos/prices").subscribe((data) => this.criptos = data);
+    this.http.get(environment.api + "api/criptos/prices").subscribe((data) => this.criptos = data);
   }
 
 }

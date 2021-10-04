@@ -5,7 +5,7 @@ RUN npm i -g @angular/cli
 RUN npm install
 COPY . /app
 ARG PORT
-RUN ng build --base-href / --delete-output-path=false --outputHashing=all --aot=false --build-optimizer=false --output-path=./dist/out 
+RUN ng build --prod --base-href / --delete-output-path=false --outputHashing=all --aot=false --build-optimizer=false --output-path=./dist/out 
 
 FROM nginx:latest
 
