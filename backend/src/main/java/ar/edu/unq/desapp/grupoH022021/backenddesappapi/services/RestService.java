@@ -17,12 +17,16 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RestService {
-    @Autowired
+
     RestTemplate restTemplate;
     
     private static Logger logger = LoggerFactory.getLogger(RestService.class);
-    
-    public <T> T Get(String uri, Class<T> responseType){
+
+    public RestService(RestTemplate restTemplate){
+    	this.restTemplate = restTemplate;
+	}
+
+    public <T> T get(String uri, Class<T> responseType){
         return restTemplate.getForEntity(uri, responseType).getBody();
     }
 

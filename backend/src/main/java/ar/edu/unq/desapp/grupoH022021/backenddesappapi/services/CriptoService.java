@@ -19,14 +19,18 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.CriptoReposi
 @Service
 public class CriptoService {
 
-	@Autowired
 	private CriptoRepository repository;
 
-	@Autowired
 	RestService restService;
 
-	@Autowired
 	private EnvironmentConfig config;
+
+	@Autowired
+	public CriptoService(CriptoRepository repository, RestService restService, EnvironmentConfig config){
+		this.config = config;
+		this.restService = restService;
+		this.repository = repository;
+	}
 
 	@Transactional
 	public Cripto save(Cripto model) {
@@ -46,7 +50,7 @@ public class CriptoService {
 		List<CriptoDto> result = new ArrayList<CriptoDto>();
 
 		for (Cripto cripto : criptos) {
-			result.add(restService.Get(config.getBinanceUrl() + cripto.name,
+			result.add(restService.get(config.getBinanceUrl() + cripto.name,
 					                   CriptoDto.class));
 		}
 

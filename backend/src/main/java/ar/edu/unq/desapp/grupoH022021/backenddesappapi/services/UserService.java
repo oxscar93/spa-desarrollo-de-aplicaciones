@@ -12,10 +12,13 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.UserReposito
 
 @Service
 public class UserService {
-	
-	@Autowired
+
 	private UserRepository  repository;
-	
+
+	@Autowired
+	public UserService(UserRepository  repository){
+		this.repository = repository;
+	}
 	@Transactional
 	public User save(UserDto user) {
 
