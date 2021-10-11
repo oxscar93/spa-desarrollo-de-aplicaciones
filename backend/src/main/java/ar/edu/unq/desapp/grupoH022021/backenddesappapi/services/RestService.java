@@ -1,12 +1,7 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,8 +14,6 @@ import org.springframework.web.client.RestTemplate;
 public class RestService {
 
     RestTemplate restTemplate;
-    
-    private static Logger logger = LoggerFactory.getLogger(RestService.class);
 
     public RestService(RestTemplate restTemplate){
     	this.restTemplate = restTemplate;

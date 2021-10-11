@@ -1,6 +1,5 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi;
 
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.UserDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.UserService;
 import org.junit.jupiter.api.Test;
