@@ -1,6 +1,8 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -61,6 +63,7 @@ public class CriptoService {
 		List<ActiveCriptoDto> result = new ArrayList<ActiveCriptoDto>();
 		List<CriptoDto> criptos = this.getPrices();
 		Integer usd = this.getPriceUSD();
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
 		for (CriptoDto cripto : criptos) {
 			ActiveCriptoDto activeCriptoDto = new ActiveCriptoDto();
@@ -68,7 +71,8 @@ public class CriptoService {
 			activeCriptoDto.name = cripto.symbol;
 			Double criptoPrice = !cripto.price.equalsIgnoreCase("") ? Double.parseDouble(cripto.price) : 0;
 			activeCriptoDto.price = String.valueOf(criptoPrice * usd);
-			activeCriptoDto.date = LocalDate.now().toString();
+			LocalDateTime now = LocalDateTime.now();
+			activeCriptoDto.date = now.format(format);
 
 			result.add(activeCriptoDto);
 		}
