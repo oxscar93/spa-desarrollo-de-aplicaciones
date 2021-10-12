@@ -14,12 +14,14 @@
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
+                <th scope="col">Date</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let cripto of criptos;">
-                <td>{{ cripto.symbol }}</td>
+                <td>{{ cripto.name }}</td>
                 <td>{{ cripto.price }}</td>
+                <td>{{ cripto.date }}</td>
             </tr>
             </tbody>
             </table>

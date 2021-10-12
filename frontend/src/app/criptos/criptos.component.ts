@@ -18,7 +18,7 @@ export class CriptosComponent implements OnInit {
   }
 
   getCriptos() {
-    this.http.get(environment.api + "api/criptos/prices").subscribe((data) => this.criptos = data);
+    this.http.get(environment.api + "api/criptos/actives").subscribe((data) => this.criptos = data);
   }
 
 }
