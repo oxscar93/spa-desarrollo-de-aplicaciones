@@ -3,10 +3,12 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.context.annotation.Import;
+
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.configuration.SwaggerConfig;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-@EnableSwagger2
+@Import(SwaggerConfig.class)
 public class BackendDesappApiApplication {
 
 	public static void main(String[] args) {

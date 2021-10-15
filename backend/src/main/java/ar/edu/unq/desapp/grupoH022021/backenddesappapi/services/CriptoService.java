@@ -1,6 +1,5 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
