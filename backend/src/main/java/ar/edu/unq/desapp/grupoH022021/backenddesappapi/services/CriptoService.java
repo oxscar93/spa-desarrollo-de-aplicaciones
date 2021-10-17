@@ -1,5 +1,7 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -69,7 +71,11 @@ public class CriptoService {
 
 			activeCriptoDto.name = cripto.symbol;
 			Double criptoPrice = !cripto.price.equalsIgnoreCase("") ? Double.parseDouble(cripto.price) : 0;
-			activeCriptoDto.price = String.valueOf(criptoPrice * usd);
+			Integer criptoPriceI = criptoPrice.intValue();
+			String priceI = String.valueOf(criptoPriceI * usd);
+//			String price = String.valueOf(criptoPrice * usd);
+//			activeCriptoDto.price = this.formatPrice(priceI);
+			activeCriptoDto.price = priceI;
 			LocalDateTime now = LocalDateTime.now();
 			activeCriptoDto.date = now.format(format);
 
@@ -79,6 +85,12 @@ public class CriptoService {
 		return result;
 	}
 	
+	private String formatPrice(String price) {
+		BigDecimal bd = new BigDecimal(price);
+		bd = bd.setScale(2, RoundingMode.HALF_UP);
+		return String.valueOf(bd.doubleValue());
+	}
+
 	public Integer getPriceUSD() {
 		Integer value = 0;
 
