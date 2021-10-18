@@ -39,6 +39,16 @@ public class UserService {
 		return this.repository.findById(id).get();
 	}
 
+	public User login(String username, String password) throws Exception {
+		User user = this.repository.findByName(username);
+
+		if (user == null || !user.password.equals(password)){
+			throw new Exception("User does not exist or password is invalid");
+		}
+
+		return user;
+	}
+
 	public List<User> findAll() {
 		return this.repository.findAll();
 	}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-registration',
@@ -11,7 +12,7 @@ export class UsersRegistrationComponent implements OnInit {
 
   user:any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   ngOnInit(): void {
     this.user = {};
@@ -23,6 +24,7 @@ export class UsersRegistrationComponent implements OnInit {
     {
       this.user = {};
       alert("User registered successfully");
+      this.router.navigate([""])
     }
     );
   }

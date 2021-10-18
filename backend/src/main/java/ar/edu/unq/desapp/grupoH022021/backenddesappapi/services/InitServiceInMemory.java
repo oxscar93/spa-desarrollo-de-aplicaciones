@@ -41,11 +41,13 @@ public class InitServiceInMemory {
 
 		user.name = "guille";
 		user.lastName = "salvatore";
+		user.password = "1234";
 
 		UserDto user2 = new UserDto();
 
 		user2.name = "osc";
 		user2.lastName = "lescano";
+		user2.password = "1234";
 
 		userService.save(user);
 		userService.save(user2);
