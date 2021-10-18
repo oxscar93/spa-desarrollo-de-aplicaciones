@@ -10,7 +10,7 @@ import { CriptosComponent } from './criptos/criptos.component';
 import { UsersRegistrationComponent } from './users/registration/users-registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './_services/AuthService';
+import { AuthService } from './_services/auth.service';
 import { HttpAuthInterceptor } from './_services/httpInterceptor';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
