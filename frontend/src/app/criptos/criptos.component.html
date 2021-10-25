@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criptos</title>
-</head>
-<body>
-    <div class="row justify-content-center">
-        <div class="col-auto">
-            <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let cripto of criptos;">
-                <td>{{ cripto.name }}</td>
-                <td>{{ cripto.price }}</td>
-                <td>{{ cripto.date }}</td>
-            </tr>
-            </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-</html>
+<h5 class="text-center">Active Criptos</h5>
+<br>
+
+<div class="col-auto">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cripto of criptos;">
+        <td>{{ cripto.name }}</td>
+        <td>{{ cripto.price }}</td>
+        <td>{{ cripto.date }}</td>
+        <td><button class="btn btn-success">Buy</button> - <button class="btn btn-info">Sell</button></td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+
+

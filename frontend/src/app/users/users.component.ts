@@ -17,9 +17,7 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  getUsers(){
-    //refactor url a una configuracion comun cuando se siga desarrollando la app
-    
+  getUsers(){   
     this.http.get(environment.api + "api/users").subscribe((data) => this.users = data);
   }
 }

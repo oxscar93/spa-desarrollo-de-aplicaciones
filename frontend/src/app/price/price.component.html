@@ -1,0 +1,20 @@
+<h5 class="text-center">Prices</h5>
+<br>
+
+<p class="text-right text-info" *ngIf="updated">Last time updated: {{ timeUpdated.toLocaleString() }}</p>
+<div class="col-auto">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let price of prices;">
+        <td>{{ price.symbol }}</td>
+        <td>{{ price.price }}</td>
+    </tr>
+    </tbody>
+    </table>
+</div>

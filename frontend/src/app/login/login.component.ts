@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(["/users"]);
                 },
                 (error:any) => {
-                    alert(error)
+                    alert("Login Failed.")
                     this.loading = false;
                 });
     }

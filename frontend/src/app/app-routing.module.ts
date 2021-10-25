@@ -5,6 +5,8 @@ import { CriptosComponent } from './criptos/criptos.component';
 import { UsersRegistrationComponent } from './users/registration/users-registration.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { PriceComponent } from './price/price.component';
+import { SellBuyComponent } from './sell-buy/sell-buy.component';
 
 const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent },
     { path: 'register', component: UsersRegistrationComponent },
     { path: 'criptos', component: CriptosComponent },
+    { path: 'prices', component: PriceComponent },
+    { path: 'activities', component: SellBuyComponent },
   ];
 
 // configures NgModule imports and exports
