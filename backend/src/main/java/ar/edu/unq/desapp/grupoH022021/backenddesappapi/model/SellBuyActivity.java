@@ -12,7 +12,7 @@ public class SellBuyActivity {
     public Integer id;
 
     @Column
-    public LocalDateTime date;
+    public LocalDate date;
 
     @Column
     public String cripto;
@@ -34,4 +34,7 @@ public class SellBuyActivity {
 
     @Column
     public int reputationPoints;
+
+    @Column
+    public int type;
 }

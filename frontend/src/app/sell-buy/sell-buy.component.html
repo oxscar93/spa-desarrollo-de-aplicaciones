@@ -5,6 +5,7 @@
     <table class="table table-striped">
     <thead>
     <tr>
+        <th scope="col">Type</th>
         <th scope="col">Date</th>
         <th scope="col">Cripto</th>
         <th scope="col">Cripto Count</th>
@@ -17,13 +18,17 @@
     </thead>
     <tbody>
     <tr *ngFor="let activity of activities;">
+        <td *ngIf="activity.type == 1">Buy</td>
+        <td *ngIf="activity.type == 2">Sell</td>
         <td>{{ activity.date }}</td>
+        <td>{{ activity.cripto }}</td>
         <td>{{ activity.criptoCount }}</td>
         <td>{{ activity.criptoPrice }}</td>
         <td>{{ activity.operationAmount }}</td>
         <td>{{ activity.user }}</td>
         <td>{{ activity.operationCount }}</td>
-        <td>{{ activity.reputationPoints }}</td>
+        <td *ngIf="activity.reputationPoints != 0">{{ activity.reputationPoints }}</td>
+        <td *ngIf="activity.reputationPoints == 0">No Operations</td>
     </tr>
     </tbody>
     </table>

@@ -34,6 +34,7 @@ public class TokenService {
         TokenDto token = new TokenDto();
         token.access_token = jwt;
         token.token_type = "Bearer";
+        token.username = username;
 
         return token;
     }

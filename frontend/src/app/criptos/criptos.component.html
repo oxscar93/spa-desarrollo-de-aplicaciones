@@ -16,10 +16,51 @@
         <td>{{ cripto.name }}</td>
         <td>{{ cripto.price }}</td>
         <td>{{ cripto.date }}</td>
-        <td><button class="btn btn-success">Buy</button> - <button class="btn btn-info">Sell</button></td>
+        <td><button class="btn btn-success" (click)="showModal(modalData, cripto, 1)">Buy</button> - <button class="btn btn-info" (click)="showModal(modalDataSell, cripto, 2)">Sell</button></td>
     </tr>
     </tbody>
     </table>
 </div>
 
 
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Buy Criptos</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="control-group">
+        <!-- Username -->
+        <label class="control-label"  for="name">Cripto Count</label>
+        <div class="controls">
+          <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Buy</button>
+  </div>
+</ng-template>
+
+<ng-template #modalDataSell let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Sell Criptos</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="control-group">
+          <!-- Username -->
+          <label class="control-label"  for="name">Cripto Count</label>
+          <div class="controls">
+            <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Sell</button>
+    </div>
+  </ng-template>
