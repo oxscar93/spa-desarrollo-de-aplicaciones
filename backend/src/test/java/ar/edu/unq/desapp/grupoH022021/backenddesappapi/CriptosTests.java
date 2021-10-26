@@ -38,10 +38,10 @@ public class CriptosTests {
         assertTrue("Prices not found", criptos.size() == 11);
     }
 
-    @Test
-    public void getActiveCriptos() throws URISyntaxException, JsonProcessingException {
-        List<ActiveCriptoDto> criptos = this.criptoService.getActiveCriptos();
-
-        assertTrue("Active Criptos not found", criptos.size() == 11);
-    }
+//    @Test
+//    public void getActiveCriptos() throws URISyntaxException, JsonProcessingException {
+//        List<ActiveCriptoDto> criptos = this.criptoService.getActiveCriptos();
+//
+//        assertTrue("Active Criptos not found", criptos.size() == 11);
+//    }
 }
