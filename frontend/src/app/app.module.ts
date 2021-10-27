@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { PriceComponent } from './price/price.component';
 import { SellBuyComponent } from './sell-buy/sell-buy.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SellBuyComponent } from './sell-buy/sell-buy.component';
     HeaderComponent,
     HomeComponent,
     PriceComponent,
-    SellBuyComponent
+    SellBuyComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

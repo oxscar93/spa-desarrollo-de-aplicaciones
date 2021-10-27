@@ -13,4 +13,5 @@ import java.util.Optional;
 @Repository
 public interface SellBuyActivitiesRepository extends CrudRepository<SellBuyActivity, Integer> {
 	List<SellBuyActivity> findAll();
+	Optional<SellBuyActivity> findById(Integer id);
 }

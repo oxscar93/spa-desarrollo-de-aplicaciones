@@ -1,0 +1,80 @@
+<div class ="row justify-content-center">
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+          <div id="legend">
+            <legend class="">Transaction</legend>
+          </div>
+          <div class="control-group">
+            <!-- Username -->
+            <label class="control-label" for="Date" >Date</label>
+            <div class="controls">
+              <input disabled [(ngModel)]="activity.date" type="text" id="date" name="date" placeholder="" class="input-xlarge">
+            </div>
+          </div>
+    
+          <div class="control-group">
+            <!-- Username -->
+            <label class="control-label"  for="LastName">Cripto</label>
+            <div class="controls">
+              <input disabled [(ngModel)]="activity.cripto" type="text" id="cripto" name="cripto" placeholder="" class="input-xlarge">
+           </div>
+          </div>
+       
+          <div class="control-group">
+            <!-- E-mail -->
+            <label class="control-label" for="email">Cripto Count</label>
+            <div class="controls">
+              <input disabled [(ngModel)]="activity.criptoCount" type="text" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
+            </div>
+          </div>
+       
+          <div class="control-group">
+            <!-- Password-->
+            <label class="control-label" for="password">Operation Amount</label>
+            <div class="controls">
+              <input disabled [(ngModel)]="activity.operationAmount" type="text" id="operationAmount" name="operationAmount" placeholder="" class="input-xlarge">
+           </div>
+          </div>
+    
+          <div class="control-group">
+            <!-- Password-->
+            <label class="control-label" for="user">User</label>
+            <div class="controls">
+              <input disabled [(ngModel)]="activity.user" type="text" id="user" name="user" placeholder="" class="input-xlarge">
+           </div>
+          </div>
+    
+          <div class="control-group">
+            <!-- Password-->
+            <label class="control-label" for="cvu">Reputation</label>
+            <div class="controls">
+              <input disabled [(ngModel)]="activity.reputationPoints" type="text" id="reputationPoints" name="reputationPoints" placeholder="" class="input-xlarge">
+            </div>
+          </div>
+    
+          <div class="control-group" *ngIf="activity.type == 2">
+            <!-- Password-->
+            <label class="control-label" for="cwallet">CVU Destination</label>
+            <div class="controls">
+              <input [(ngModel)]="activity.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
+            </div>
+          </div>
+          <div class="control-group" *ngIf="activity.type == 1">
+            <!-- Password-->
+            <label class="control-label" for="cwallet">Wallet Destination</label>
+            <div class="controls">
+              <input [(ngModel)]="activity.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
+            </div>
+          </div>
+          <br>
+          <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+              <button class="btn btn-success" style="margin:2px" *ngIf="activity.type == 1">Transfer</button>
+              <button class="btn btn-success" style="margin:2px" *ngIf="activity.type == 2">Confirm</button>
+              <button class="btn btn-danger"  style="margin:2px" (click)="cancel()">Cancel</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>

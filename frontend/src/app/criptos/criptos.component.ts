@@ -29,7 +29,6 @@ export class CriptosComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
       this.closeModal = `Closed with: ${res}`;
 
-      debugger;
       let token = localStorage.getItem('token')?.toString();
 
       if (token != null)
@@ -46,7 +45,7 @@ export class CriptosComponent implements OnInit {
       .subscribe((data) =>
       {
         this.sellBuy = {};
-        alert("Buy successfull");
+        alert("Operation OK");
       }
       );
 
