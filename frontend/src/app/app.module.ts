@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { PriceComponent } from './price/price.component';
 import { SellBuyComponent } from './sell-buy/sell-buy.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { MyTransactionsComponent } from './my-transactions/my-transactions.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     HomeComponent,
     PriceComponent,
     SellBuyComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    MyTransactionsComponent
   ],
   imports: [
     BrowserModule,

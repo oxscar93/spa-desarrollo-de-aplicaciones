@@ -1,0 +1,27 @@
+<h5 class="text-center">My Transactions</h5>
+<br>
+
+<div class="col-auto">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Cripto</th>
+        <th scope="col">Cripto Count</th>
+        <th scope="col">Operation Amount</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody style="cursor: pointer;">
+    <tr *ngFor="let transaction of transactions;">
+        <td *ngIf="transaction.type == 2">Buy</td>
+        <td *ngIf="transaction.type == 1">Sell</td>
+        <td>{{ transaction.cripto }}</td>
+        <td>{{ transaction.criptoCount }}</td>
+        <td>{{ transaction.operationAmount }}</td>
+        <td *ngIf="transaction.type == 1"><button class="btn btn-success">Confirm Reception</button></td>
+        <td *ngIf="transaction.type == 2"><button class="btn btn-success">Confirm Transfer</button></td>
+    </tr>
+    </tbody>
+    </table>
+</div>

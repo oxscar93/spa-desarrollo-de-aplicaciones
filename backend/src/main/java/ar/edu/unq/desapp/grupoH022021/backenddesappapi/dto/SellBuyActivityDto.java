@@ -8,5 +8,6 @@ public class SellBuyActivityDto {
     public String cripto;
     public long criptoPrice;
     public int criptoCount;
+    public int operationAmount;
     public String user;
 }

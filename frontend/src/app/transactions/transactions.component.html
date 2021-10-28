@@ -22,17 +22,17 @@
        
           <div class="control-group">
             <!-- E-mail -->
-            <label class="control-label" for="email">Cripto Count</label>
+            <label class="control-label" for="email">Cripto Count (max {{activity.criptoCount}})</label>
             <div class="controls">
-              <input disabled [(ngModel)]="activity.criptoCount" type="text" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
+              <input (change)="calculateAmount()" [(ngModel)]="transaction.criptoCount" type="number" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
             </div>
           </div>
        
           <div class="control-group">
             <!-- Password-->
-            <label class="control-label" for="password">Operation Amount</label>
+            <label class="control-label" for="password">Operation Amount ({{activity.operationAmount}} per cripto)</label>
             <div class="controls">
-              <input disabled [(ngModel)]="activity.operationAmount" type="text" id="operationAmount" name="operationAmount" placeholder="" class="input-xlarge">
+              <input disabled [(ngModel)]="transaction.operationAmount" type="text" id="operationAmount" name="operationAmount" placeholder="" class="input-xlarge">
            </div>
           </div>
     
@@ -52,14 +52,14 @@
             </div>
           </div>
     
-          <div class="control-group" *ngIf="activity.type == 2">
+          <div class="control-group" *ngIf="activity.type == 1">
             <!-- Password-->
             <label class="control-label" for="cwallet">CVU Destination</label>
             <div class="controls">
               <input [(ngModel)]="activity.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
             </div>
           </div>
-          <div class="control-group" *ngIf="activity.type == 1">
+          <div class="control-group" *ngIf="activity.type == 2">
             <!-- Password-->
             <label class="control-label" for="cwallet">Wallet Destination</label>
             <div class="controls">
@@ -70,8 +70,8 @@
           <div class="control-group">
             <!-- Button -->
             <div class="controls">
-              <button class="btn btn-success" style="margin:2px" *ngIf="activity.type == 1">Transfer</button>
-              <button class="btn btn-success" style="margin:2px" *ngIf="activity.type == 2">Confirm</button>
+              <button *ngIf="activity.type == 1" class="btn btn-success" style="margin:2px" (click)="create()">Confirm Transfer</button>
+              <button *ngIf="activity.type == 2" class="btn btn-success" style="margin:2px" (click)="create()">Sell</button>
               <button class="btn btn-danger"  style="margin:2px" (click)="cancel()">Cancel</button>
             </div>
           </div>

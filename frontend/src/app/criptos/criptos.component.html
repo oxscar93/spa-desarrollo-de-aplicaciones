@@ -38,7 +38,14 @@
           <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
         </div>
       </div>
-  </div>
+
+  <div class="control-group">
+    <label class="control-label"  for="amount">Operation Amount</label>
+      <div class="controls">
+        <input [(ngModel)]="sellBuy.operationAmount" type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+</div>
   <div class="modal-footer">
     <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Buy</button>
   </div>
@@ -57,6 +64,12 @@
           <label class="control-label"  for="name">Cripto Count</label>
           <div class="controls">
             <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
+          </div>
+        </div>
+        <div class="control-group">
+        <label class="control-label"  for="amount">Operation Amount</label>
+          <div class="controls">
+            <input [(ngModel)]="sellBuy.operationAmount" type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
           </div>
         </div>
     </div>

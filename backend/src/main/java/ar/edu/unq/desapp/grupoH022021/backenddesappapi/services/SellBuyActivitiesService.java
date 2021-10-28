@@ -33,13 +33,13 @@ public class SellBuyActivitiesService {
     }
 
     public void buy(SellBuyActivityDto sellBuyActivityDto) {
-        SellBuyActivity entity = createEntity(sellBuyActivityDto, 1);
+        SellBuyActivity entity = createEntity(sellBuyActivityDto, 2);
 
         this.repository.save(entity);
     }
 
     public void sell(SellBuyActivityDto sellBuyActivityDto) {
-        SellBuyActivity entity = createEntity(sellBuyActivityDto, 2);
+        SellBuyActivity entity = createEntity(sellBuyActivityDto, 1);
 
         this.repository.save(entity);
     }
@@ -56,7 +56,7 @@ public class SellBuyActivitiesService {
         entity.user = sellBuyActivityDto.user;
         entity.cripto = sellBuyActivityDto.cripto;
         entity.criptoPrice = sellBuyActivityDto.criptoPrice;
-        entity.operationAmount = sellBuyActivityDto.criptoCount * sellBuyActivityDto.criptoPrice;
+        entity.operationAmount = sellBuyActivityDto.operationAmount;
         entity.criptoCount = sellBuyActivityDto.criptoCount;
         entity.reputationPoints = 0;
         entity.operationCount = 0;
