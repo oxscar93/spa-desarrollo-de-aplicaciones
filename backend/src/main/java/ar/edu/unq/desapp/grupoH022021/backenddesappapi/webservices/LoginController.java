@@ -1,7 +1,6 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.webservices;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TokenDto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.TokenService;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class LoginController {
             return new ResponseEntity(this.tokenService.getJWT(username), HttpStatus.OK);
         }
         catch (Exception e){
-            return new ResponseEntity(null, HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity(e.getMessage(), HttpStatus.UNAUTHORIZED);
         }
     }
 }

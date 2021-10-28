@@ -4,6 +4,8 @@ import java.util.List;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +16,9 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.UserReposito
 public class UserService {
 
 	private UserRepository  repository;
+	
+	@Autowired
+	private MessageSource messages;
 
 	@Autowired
 	public UserService(UserRepository  repository){
@@ -44,7 +49,8 @@ public class UserService {
 		User user = this.repository.findByName(username);
 
 		if (user == null || !user.password.equals(password)){
-			throw new Exception("User does not exist or password is invalid");
+			String loginError = messages.getMessage("loginError", null, LocaleContextHolder.getLocale());
+			throw new Exception(loginError);
 		}
 
 		return user;
