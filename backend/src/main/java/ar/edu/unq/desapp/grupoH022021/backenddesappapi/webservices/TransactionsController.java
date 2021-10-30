@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.webservices;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.SellBuyActivityDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TransactionDto;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TransactionStatusDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.UserDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.SellBuyActivity;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Transaction;
@@ -24,18 +25,18 @@ public class TransactionsController {
         return list;
     }
 
+    @GetMapping("/api/transactions/status/{id}")
+    public TransactionStatusDto transactions(@PathVariable("id") Integer id) {
+        return transactionsService.findStatus(id);
+    }
+
     @PostMapping("/api/transactions/create")
-    public void create(@RequestBody TransactionDto transaction) {
-        transactionsService.create(transaction);
+    public TransactionDto create(@RequestBody TransactionDto transaction) {
+        return transactionsService.create(transaction);
     }
 
     @PostMapping("/api/transactions/confirm")
     public void confirm(@RequestBody TransactionDto transaction) {
         transactionsService.confirm(transaction);
-    }
-
-    @PostMapping("/api/transactions/transfer")
-    public void transfer(@RequestBody TransactionDto transaction) {
-        transactionsService.transfer(transaction);
     }
 }

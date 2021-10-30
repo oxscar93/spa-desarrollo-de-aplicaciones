@@ -2,7 +2,12 @@
     <form class="form-horizontal" action='' method="POST">
         <fieldset>
           <div id="legend">
-            <legend class="">Transaction</legend>
+            <legend class="">Transaction   
+                <label *ngIf="confirmed" id="confirmed" class="text-success">Operation Confirmed!</label>
+                <label *ngIf="timerOn" id="minutes" class="text-success">{{minutes}}</label>
+                <label *ngIf="timerOn" id="colon" class="text-success">:</label>
+                <label *ngIf="timerOn" id="seconds" class="text-success">{{seconds}}</label>
+            </legend>           
           </div>
           <div class="control-group">
             <!-- Username -->
@@ -24,7 +29,7 @@
             <!-- E-mail -->
             <label class="control-label" for="email">Cripto Count (max {{activity.criptoCount}})</label>
             <div class="controls">
-              <input (change)="calculateAmount()" [(ngModel)]="transaction.criptoCount" type="number" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
+              <input (change)="calculateAmount()" [min]="0" [max]="activity.criptoCount" [(ngModel)]="transaction.criptoCount" type="number" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
             </div>
           </div>
        
@@ -70,11 +75,13 @@
           <div class="control-group">
             <!-- Button -->
             <div class="controls">
-              <button *ngIf="activity.type == 1" class="btn btn-success" style="margin:2px" (click)="create()">Confirm Transfer</button>
+              <button *ngIf="activity.type == 1"  [disabled]="transactionSent" class="btn btn-success" style="margin:2px" (click)="create()">Confirm Transfer</button>
               <button *ngIf="activity.type == 2" class="btn btn-success" style="margin:2px" (click)="create()">Sell</button>
-              <button class="btn btn-danger"  style="margin:2px" (click)="cancel()">Cancel</button>
+              <button class="btn btn-danger"  style="margin:2px" [disabled]="confirmed" (click)="cancel()">Cancel</button>         
             </div>
           </div>
         </fieldset>
       </form>
     </div>
+
+ 

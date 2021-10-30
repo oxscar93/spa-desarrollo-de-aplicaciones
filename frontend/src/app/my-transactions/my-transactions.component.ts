@@ -23,9 +23,19 @@ export class MyTransactionsComponent implements OnInit {
     if (token != null){
         this.http.get(environment.api + "api/transactions/" + JSON.parse(token).username ).subscribe((data) => 
         {
-              this.transactions = data;  
+            this.transactions = data;  
         }
     );
     }   
+  }
+
+  confirm(transaction:any){
+      this.http.post(environment.api + "api/transactions/confirm", transaction)
+      .subscribe((data) =>
+      {
+        alert("Operation OK");
+        this.getTransactions();
+      }
+    );
   }
 }
