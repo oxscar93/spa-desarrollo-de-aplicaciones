@@ -4,10 +4,15 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.configuration.EnvironmentConfig;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.ActiveCriptoDto;
@@ -15,6 +20,8 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.CriptoDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.DollarDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +30,9 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.CriptoReposi
 
 @Service
 public class CriptoService {
+	
+	@Autowired
+	private MessageSource messages;
 
 	private CriptoRepository repository;
 
@@ -67,7 +77,11 @@ public class CriptoService {
 		List<ActiveCriptoDto> result = new ArrayList<ActiveCriptoDto>();
 		List<CriptoDto> criptos = this.getPrices();
 		double usd = this.getPriceUSD();
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		Instant instant = Instant.now();
+		ZoneId zone = ZoneId.systemDefault();
+		ZonedDateTime zoneDiteTime = instant.atZone(zone);
+		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(LocaleContextHolder.getLocale());
+		String date = zoneDiteTime.format(formatter);
 
 		for (CriptoDto cripto : criptos) {
 			ActiveCriptoDto activeCriptoDto = new ActiveCriptoDto();
@@ -77,8 +91,7 @@ public class CriptoService {
 			String price = String.valueOf(criptoPrice * usd);
 			activeCriptoDto.price = this.formatPrice(price);
 //			activeCriptoDto.price = price;
-			LocalDateTime now = LocalDateTime.now();
-			activeCriptoDto.date = now.format(format);
+			activeCriptoDto.date = date;
 
 			result.add(activeCriptoDto);
 		}
