@@ -6,10 +6,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EnvironmentConfig {
     private String binanceUrl;
-    private String brcaUrl;
-    private String brcaToken;
+    private String dollarPrice;
 
-    public String getBinanceUrl() {
+    public String getDollarPrice() {
+		return dollarPrice;
+	}
+
+	public void setDollarPrice(String dollarPrice) {
+		this.dollarPrice = dollarPrice;
+	}
+
+	public String getBinanceUrl() {
         return binanceUrl;
     }
 
@@ -17,19 +24,4 @@ public class EnvironmentConfig {
         this.binanceUrl = binanceUrl;
     }
 
-    public String getBrcaUrl() {
-        return brcaUrl;
-    }
-
-    public void setBrcaUrl(String brcaUrl) {
-        this.brcaUrl = brcaUrl;
-    }
-
-    public String getBrcaToken() {
-        return brcaToken;
-    }
-
-    public void setBrcaToken(String brcaToken) {
-        this.brcaToken = brcaToken;
-    }
 }
