@@ -29,7 +29,7 @@ export class CriptosComponent implements OnInit {
     this.http.get(environment.api + "api/criptos/actives").subscribe((data) =>     
     {
       this.criptos = data;  
-      this.timeUpdated = new Date();
+      this.timeUpdated = this.criptos[0].date;
       this.updated = true;
    });
   }
