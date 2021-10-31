@@ -3,11 +3,6 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +14,6 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.DollarDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
