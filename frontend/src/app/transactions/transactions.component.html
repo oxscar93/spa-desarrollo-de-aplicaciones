@@ -2,7 +2,8 @@
     <form class="form-horizontal" action='' method="POST">
         <fieldset>
           <div id="legend">
-            <legend class="">Transaction   
+            <legend class="">Transaction  
+                <label *ngIf="cancelled" id="confirmed" class="text-danger">Operation Cancelled!</label> 
                 <label *ngIf="confirmed" id="confirmed" class="text-success">Operation Confirmed!</label>
                 <label *ngIf="timerOn" id="minutes" class="text-success">{{minutes}}</label>
                 <label *ngIf="timerOn" id="colon" class="text-success">:</label>
@@ -13,7 +14,7 @@
             <!-- Username -->
             <label class="control-label" for="Date" >Date</label>
             <div class="controls">
-              <input disabled [(ngModel)]="activity.date" type="text" id="date" name="date" placeholder="" class="input-xlarge">
+              <input disabled [(ngModel)]="activity.dateTimeFormatted" type="text" id="date" name="date" placeholder="" class="input-xlarge">
             </div>
           </div>
     
@@ -35,7 +36,7 @@
        
           <div class="control-group">
             <!-- Password-->
-            <label class="control-label" for="password">Operation Amount ({{activity.operationAmount}} per cripto)</label>
+            <label class="control-label" for="password">Operation Amount ({{activity.operationAmountFormatted}} per cripto)</label>
             <div class="controls">
               <input disabled [(ngModel)]="transaction.operationAmount" type="text" id="operationAmount" name="operationAmount" placeholder="" class="input-xlarge">
            </div>
@@ -77,7 +78,8 @@
             <div class="controls">
               <button *ngIf="activity.type == 1"  [disabled]="transactionSent" class="btn btn-success" style="margin:2px" (click)="create()">Confirm Transfer</button>
               <button *ngIf="activity.type == 2" class="btn btn-success" style="margin:2px" (click)="create()">Sell</button>
-              <button class="btn btn-danger"  style="margin:2px" [disabled]="confirmed" (click)="cancel()">Cancel</button>         
+              <button *ngIf="!cancelled" class="btn btn-danger"  style="margin:2px" [disabled]="confirmed" (click)="cancel()">Cancel</button>     
+              <button *ngIf="cancelled || confirmed "  class="btn btn-danger"  style="margin:2px" (click)="close()">Close</button>       
             </div>
           </div>
         </fieldset>

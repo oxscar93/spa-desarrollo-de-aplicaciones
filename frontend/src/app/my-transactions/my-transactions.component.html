@@ -19,9 +19,10 @@
         <td>{{ transaction.cripto }}</td>
         <td>{{ transaction.criptoCount }}</td>
         <td>{{ transaction.operationAmount }}</td>
-        <td class="text-success" *ngIf="transaction.type == 1 && transaction.status == 2">Confirmed</td>
-        <td *ngIf="transaction.type == 1 && transaction.status == 1"><button class="btn btn-success" (click)="confirm(transaction)">Confirm Reception</button></td>
-        <td *ngIf="transaction.type == 2" ><button class="btn btn-success" (click)="confirm(transaction)">Confirm Transfer</button></td>
+        <td class="text-danger" *ngIf="transaction.status == 3">Cancelled</td>
+        <td class="text-success" *ngIf="transaction.status == 2">Confirmed</td>
+        <td *ngIf="transaction.type == 1 && transaction.status == 1"><button class="btn btn-success" (click)="confirm(transaction)">Confirm Reception</button> - <button class="btn btn-danger" (click)="cancel(transaction)">Cancel</button></td>
+        <td *ngIf="transaction.type == 2" ><button class="btn btn-success" (click)="confirm(transaction)">Confirm Transfer</button> - <button class="btn btn-danger" (click)="cancel(transaction)">Cancel</button></td>
     </tr>
     </tbody>
     </table>

@@ -1,6 +1,7 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.model;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -12,7 +13,7 @@ public class SellBuyActivity {
     public Integer id;
 
     @Column
-    public LocalDate date;
+    public Instant date;
 
     @Column
     public String cripto;
@@ -21,10 +22,10 @@ public class SellBuyActivity {
     public int criptoCount;
 
     @Column
-    public long criptoPrice;
+    public double criptoPrice;
 
     @Column
-    public long operationAmount;
+    public double operationAmount;
 
     @Column
     public String user;
@@ -37,4 +38,13 @@ public class SellBuyActivity {
 
     @Column
     public int type;
+
+    @Column
+    public String dateTimeFormatted;
+
+    @Column
+    public String criptoPriceFormatted;
+
+    @Column
+    public String operationAmountFormatted;
 }

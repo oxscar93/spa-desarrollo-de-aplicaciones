@@ -38,4 +38,14 @@ export class MyTransactionsComponent implements OnInit {
       }
     );
   }
+
+  cancel(transaction:any){
+      this.http.post(environment.api + "api/transactions/cancel", transaction)
+      .subscribe((data:any) =>
+      { 
+        alert("Operation OK");
+        this.getTransactions();
+      }
+    );
+  }
 }

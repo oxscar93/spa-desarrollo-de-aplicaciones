@@ -39,4 +39,9 @@ public class TransactionsController {
     public void confirm(@RequestBody TransactionDto transaction) {
         transactionsService.confirm(transaction);
     }
+
+    @PostMapping("/api/transactions/cancel")
+    public void cancel(@RequestBody TransactionDto transaction) {
+        transactionsService.cancel(transaction);
+    }
 }

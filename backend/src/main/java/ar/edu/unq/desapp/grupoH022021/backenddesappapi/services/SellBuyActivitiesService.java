@@ -4,13 +4,20 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.SellBuyActivityDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.SellBuyActivity;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.SellBuyActivitiesRepository;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,15 +54,13 @@ public class SellBuyActivitiesService {
     private SellBuyActivity createEntity(SellBuyActivityDto sellBuyActivityDto, int type){
         SellBuyActivity entity = new SellBuyActivity();
 
-        DateTimeFormatter format = new DateTimeFormatterBuilder()
-                .parseCaseInsensitive()
-                .appendPattern("yyyy-MM-dd")
-                .toFormatter(Locale.ENGLISH);
-
-        entity.date = LocalDate.parse(sellBuyActivityDto.date, format);
+        entity.dateTimeFormatted = DateTimeUtils.formatDate(sellBuyActivityDto.dateTime);
+        entity.date = sellBuyActivityDto.dateTime;
         entity.user = sellBuyActivityDto.user;
+        entity.criptoPriceFormatted = NumberUtils.formatWithCurrency(sellBuyActivityDto.criptoPrice);
         entity.cripto = sellBuyActivityDto.cripto;
         entity.criptoPrice = sellBuyActivityDto.criptoPrice;
+        entity.operationAmountFormatted = NumberUtils.formatWithCurrency(sellBuyActivityDto.operationAmount);
         entity.operationAmount = sellBuyActivityDto.operationAmount;
         entity.criptoCount = sellBuyActivityDto.criptoCount;
         entity.reputationPoints = 0;

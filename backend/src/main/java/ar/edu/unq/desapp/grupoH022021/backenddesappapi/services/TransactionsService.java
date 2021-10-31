@@ -69,6 +69,21 @@ public class TransactionsService {
         this.repository.save(t);
     }
 
+    public void cancel(TransactionDto transaction) {
+        SellBuyActivity s = this.sellBuyRepository.findById(transaction.activityId).get();
+
+        if (this.repository.findById(transaction.id).isPresent()){
+            Transaction t = this.repository.findById(transaction.id).get();
+            t.status = 3; //cancelled;
+            this.repository.save(t);
+        }
+
+        s.reputationPoints = s.reputationPoints - 20;
+
+        this.sellBuyRepository.save(s);
+
+    }
+
     private int getPointsBasedOnTiming(Transaction t){
         LocalDateTime now = LocalDateTime.now();
 

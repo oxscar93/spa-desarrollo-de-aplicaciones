@@ -16,6 +16,7 @@ export class TransactionsComponent implements OnInit {
   timerOn:boolean;
   transactionSent:boolean;
   confirmed:boolean;
+  cancelled:boolean;
   totalSeconds:number;
   seconds:string;
   minutes:string;
@@ -28,6 +29,7 @@ export class TransactionsComponent implements OnInit {
     this.transaction =  {}
     this.timerOn = false;
     this.confirmed = false;
+    this.cancelled = false;
     this.transactionSent = false;
     this.seconds = "00";
     this.minutes = "00";
@@ -70,6 +72,20 @@ export class TransactionsComponent implements OnInit {
   }
 
   cancel(){
+    this.transaction.activityId = this.activity.id;
+
+    this.http.post(environment.api + "api/transactions/cancel", this.transaction)
+    .subscribe((data:any) =>
+    { 
+      this.cancelled = true; 
+      this.transactionSent = true;
+      this.transactionId = data.id;
+      alert("Operation OK");
+      this.close()
+    }
+    );
+  }
+  close(){
     this.router.navigate(["/activities"])
   }
 
@@ -99,12 +115,16 @@ export class TransactionsComponent implements OnInit {
      this.setTime();
      this.http.get(environment.api + "api/transactions/status/" + this.transactionId)
           .subscribe((data:any) => {
-            if (data.status != 1){
+            if (data.status == 2){    
+              this.confirmed = true;  
               this.intervalId.unsubscribe();
-
-              this.timerOn = false;
-              this.confirmed = true;             
-            }          
+              this.timerOn = false;           
+            }   
+            if (data.status == 3){    
+              this.cancelled = true; 
+              this.intervalId.unsubscribe();
+              this.timerOn = false;           
+            }        
           });
     });
   }

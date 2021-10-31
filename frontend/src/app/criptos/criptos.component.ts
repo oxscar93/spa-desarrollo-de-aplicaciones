@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { interval } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -13,16 +14,28 @@ export class CriptosComponent implements OnInit {
   closeModal: string;
   criptos:any;
   sellBuy:any;
+  updated:boolean;
+  timeUpdated:Date;
 
-  constructor(private http: HttpClient, private modalService: NgbModal) {  this.closeModal = ""; }
+  constructor(private http: HttpClient, private modalService: NgbModal) { this.timeUpdated = new Date(); this.closeModal = "";  this.updated = false; }
 
   ngOnInit(): void {
     this.getCriptos();
+    this.startPolling();
     this.sellBuy = {};
   }
 
   getCriptos() {
-    this.http.get(environment.api + "api/criptos/actives").subscribe((data) => this.criptos = data);
+    this.http.get(environment.api + "api/criptos/actives").subscribe((data) =>     
+    {
+      this.criptos = data;  
+      this.timeUpdated = new Date();
+      this.updated = true;
+   });
+  }
+
+  startPolling(){
+    interval(600000).subscribe((i) => this.getCriptos() )
   }
 
   showModal(content:any, cripto:any, type:any) {
@@ -34,9 +47,10 @@ export class CriptosComponent implements OnInit {
       if (token != null)
       {
         this.sellBuy.user = JSON.parse(token).username;
-        this.sellBuy.criptoPrice = cripto.price;
+        this.sellBuy.criptoPrice = cripto.priceNumber;
         this.sellBuy.cripto = cripto.name;
-        this.sellBuy.date = cripto.date; 
+        this.sellBuy.date = cripto.dateTime; 
+        this.sellBuy.dateTime = cripto.dateTime;
       }
 
       var url = type == 1 ? environment.api + "api/activities/buy" : environment.api + "api/activities/sell";

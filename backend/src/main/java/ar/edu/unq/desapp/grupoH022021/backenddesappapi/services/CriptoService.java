@@ -3,6 +3,7 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +16,8 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.ActiveCriptoDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.CriptoDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.DollarDto;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
@@ -70,11 +73,8 @@ public class CriptoService {
 		List<CriptoDto> criptos = this.getPrices();
 		double usd = this.getPriceUSD();
 		Instant instant = Instant.now();
-		ZoneId zone = ZoneId.systemDefault();
-		ZonedDateTime zoneDiteTime = instant.atZone(zone);
-		DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(LocaleContextHolder.getLocale());
-		String date = zoneDiteTime.format(formatter);
-		NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(LocaleContextHolder.getLocale());
+
+		String date =  DateTimeUtils.formatDate(instant);
 
 		for (CriptoDto cripto : criptos) {
 			ActiveCriptoDto activeCriptoDto = new ActiveCriptoDto();
@@ -82,8 +82,10 @@ public class CriptoService {
 			activeCriptoDto.name = cripto.symbol;
 			Double criptoPrice = !cripto.price.equalsIgnoreCase("") ? Double.parseDouble(cripto.price) : 0;
 			Double price = criptoPrice * usd;
-			activeCriptoDto.price = moneyFormat.format(price);;
+			activeCriptoDto.price = NumberUtils.formatWithCurrency(price);
 			activeCriptoDto.date = date;
+			activeCriptoDto.dateTime = instant.toString();
+			activeCriptoDto.priceNumber = price;
 
 			result.add(activeCriptoDto);
 		}

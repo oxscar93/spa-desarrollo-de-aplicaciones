@@ -20,11 +20,11 @@
     <tr *ngFor="let activity of activities;" (click)="transaction(activity.id)">
         <td *ngIf="activity.type == 1">Buy</td>
         <td *ngIf="activity.type == 2">Sell</td>
-        <td>{{ activity.date }}</td>
+        <td>{{ activity.dateTimeFormatted }}</td>
         <td>{{ activity.cripto }}</td>
         <td>{{ activity.criptoCount }}</td>
-        <td>{{ activity.criptoPrice }}</td>
-        <td>{{ activity.operationAmount }}</td>
+        <td>{{ activity.criptoPriceFormatted }}</td>
+        <td>{{ activity.operationAmountFormatted }}</td>
         <td>{{ activity.user }}</td>
         <td>{{ activity.operationCount }}</td>
         <td *ngIf="activity.reputationPoints != 0">{{ activity.reputationPoints }}</td>
