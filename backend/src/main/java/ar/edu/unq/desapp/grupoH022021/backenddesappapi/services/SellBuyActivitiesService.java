@@ -2,24 +2,13 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.SellBuyActivityDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.SellBuyActivity;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.SellBuyActivitiesRepository;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.format.annotation.NumberFormat;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.FormatStyle;
 import java.util.List;
-import java.util.Locale;
 
 @Service
 public class SellBuyActivitiesService {

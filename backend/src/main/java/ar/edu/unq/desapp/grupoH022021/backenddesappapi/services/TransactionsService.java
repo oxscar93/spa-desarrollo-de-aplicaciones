@@ -4,7 +4,6 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TransactionDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TransactionStatusDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.SellBuyActivity;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Transaction;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.SellBuyActivitiesRepository;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,12 +1,8 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.webservices;
 
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.SellBuyActivityDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TransactionDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TransactionStatusDto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.UserDto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.SellBuyActivity;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Transaction;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.SellBuyActivitiesService;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

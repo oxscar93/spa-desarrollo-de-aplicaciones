@@ -1,7 +1,5 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto;
 
-import java.time.LocalDateTime;
-
 public class TransactionDto {
     public int id;
     public int activityId;

@@ -2,8 +2,6 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.model;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sellBuyActivity")
