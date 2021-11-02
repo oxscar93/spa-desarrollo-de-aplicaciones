@@ -39,16 +39,24 @@ public class SellBuyActivitiesService {
         return this.repository.findAll();
     }
 
-    public void buy(SellBuyActivityDto sellBuyActivityDto) {
+    public SellBuyActivity buy(SellBuyActivityDto sellBuyActivityDto) {
         SellBuyActivity entity = createEntity(sellBuyActivityDto, 2);
 
         this.repository.save(entity);
+
+        SellBuyActivity r = this.repository.save(entity);
+
+        return r;
     }
 
-    public void sell(SellBuyActivityDto sellBuyActivityDto) {
+    public SellBuyActivity sell(SellBuyActivityDto sellBuyActivityDto) {
         SellBuyActivity entity = createEntity(sellBuyActivityDto, 1);
 
         this.repository.save(entity);
+
+        SellBuyActivity r = this.repository.save(entity);
+
+        return r;
     }
 
     private SellBuyActivity createEntity(SellBuyActivityDto sellBuyActivityDto, int type){

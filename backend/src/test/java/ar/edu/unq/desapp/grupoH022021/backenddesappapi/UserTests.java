@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.UserDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.User;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.UserService;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class UserTests {
     public void getAllUsers() {
         List<User> users = this.userService.findAll();
 
-		assertTrue("Users not found", users.size() == 2);
+		assertTrue("Users not found", users.size() != 0);
     }
 
     @Test
@@ -31,5 +32,17 @@ public class UserTests {
         User user = this.userService.findByID(1);
 
         assertTrue("Users not found", user.name.equals("guille"));
+    }
+
+    @Test
+    public void registerUser() throws Exception {
+        UserDto user =new UserDto();
+        user.name = "test";
+        user.password ="124";
+
+        this.userService.save(user);
+        User result = this.userService.login("test", "124");
+
+        assertTrue("User registered", result != null);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 public class EnvironmentConfig {
     private String binanceUrl;
     private String dollarPrice;
+    private boolean fakeData;
 
     public String getDollarPrice() {
 		return dollarPrice;
@@ -24,4 +25,11 @@ public class EnvironmentConfig {
         this.binanceUrl = binanceUrl;
     }
 
+    public boolean isFakeData() {
+        return fakeData;
+    }
+
+    public void setFakeData(boolean fakeData) {
+        this.fakeData = fakeData;
+    }
 }

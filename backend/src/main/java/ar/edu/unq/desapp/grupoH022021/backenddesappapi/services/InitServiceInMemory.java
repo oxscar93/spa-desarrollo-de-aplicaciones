@@ -2,6 +2,8 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
 import javax.annotation.PostConstruct;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.configuration.EnvironmentConfig;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.SellBuyActivityDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.UserDto;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Cripto;
+
+import java.time.Instant;
 
 @Service
 @Transactional
@@ -27,16 +31,26 @@ public class InitServiceInMemory {
 	@Autowired
 	private CriptoService criptoService;
 
+	@Autowired
+	private SellBuyActivitiesService sellBuyActivitiesService;
+
+	@Autowired
+	private EnvironmentConfig config;
+
 	@PostConstruct
 	public void initialize() {
 		if (className.equals("org.h2.Driver")) {
 			logger.warn("Init Data Using H2 DB");
 			fireInitialDataUser();
 			fireInitialDataCripto();
+			fireInitialSellBuyActivities();
 		}
 	}
 
 	private void fireInitialDataUser() {
+		if (!config.isFakeData())
+			return;
+
 		UserDto user = new UserDto();
 
 		user.name = "guille";
@@ -51,6 +65,33 @@ public class InitServiceInMemory {
 
 		userService.save(user);
 		userService.save(user2);
+	}
+
+	private void fireInitialSellBuyActivities() {
+		if (!config.isFakeData())
+			return;
+
+		SellBuyActivityDto s = new SellBuyActivityDto();
+
+		s.dateTime = Instant.now();
+		s.operationAmount = 10.0;
+		s.cripto = "AXSUSDT";
+		s.criptoCount = 8;
+		s.user = "osc";
+		s.criptoPrice = 10.0;
+
+		sellBuyActivitiesService.sell(s);
+
+		SellBuyActivityDto s2 = new SellBuyActivityDto();
+
+		s2.dateTime = Instant.now();
+		s2.operationAmount = 10.0;
+		s2.cripto = "ATOMUSDT";
+		s2.criptoCount = 8;
+		s2.user = "guille";
+		s2.criptoPrice = 10.0;
+
+		sellBuyActivitiesService.buy(s2);
 	}
 	
 	private void fireInitialDataCripto() {
