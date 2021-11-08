@@ -2,9 +2,9 @@
     <form class="form-horizontal" action='' method="POST">
         <fieldset>
           <div id="legend">
-            <legend class="">Transaction  
-                <label *ngIf="cancelled" id="confirmed" class="text-danger">Operation Cancelled!</label> 
-                <label *ngIf="confirmed" id="confirmed" class="text-success">Operation Confirmed!</label>
+            <legend class="">{{ 'page.transaction.title' | translate}}  
+                <label *ngIf="cancelled" id="confirmed" class="text-danger">{{ 'page.transaction.operationCancelled' | translate}}</label> 
+                <label *ngIf="confirmed" id="confirmed" class="text-success">{{ 'page.transaction.operationConfirmed' | translate}}</label>
                 <label *ngIf="timerOn" id="minutes" class="text-success">{{minutes}}</label>
                 <label *ngIf="timerOn" id="colon" class="text-success">:</label>
                 <label *ngIf="timerOn" id="seconds" class="text-success">{{seconds}}</label>
@@ -12,7 +12,7 @@
           </div>
           <div class="control-group">
             <!-- Username -->
-            <label class="control-label" for="Date" >Date</label>
+            <label class="control-label" for="Date" >{{ 'page.criptos.date' | translate}}</label>
             <div class="controls">
               <input disabled [(ngModel)]="activity.dateTimeFormatted" type="text" id="date" name="date" placeholder="" class="input-xlarge">
             </div>
@@ -20,7 +20,7 @@
     
           <div class="control-group">
             <!-- Username -->
-            <label class="control-label"  for="LastName">Cripto</label>
+            <label class="control-label"  for="LastName">{{ 'page.myTransactions.cripto' | translate}}</label>
             <div class="controls">
               <input disabled [(ngModel)]="activity.cripto" type="text" id="cripto" name="cripto" placeholder="" class="input-xlarge">
            </div>
@@ -28,7 +28,7 @@
        
           <div class="control-group">
             <!-- E-mail -->
-            <label class="control-label" for="email">Cripto Count (max {{activity.criptoCount}})</label>
+            <label class="control-label" for="email">{{ 'page.myTransactions.criptoCount' | translate}} (max {{activity.criptoCount}})</label>
             <div class="controls">
               <input (change)="calculateAmount()" [min]="0" [max]="activity.criptoCount" [(ngModel)]="transaction.criptoCount" type="number" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
             </div>
@@ -36,7 +36,7 @@
        
           <div class="control-group">
             <!-- Password-->
-            <label class="control-label" for="password">Operation Amount ({{activity.operationAmountFormatted}} per cripto)</label>
+            <label class="control-label" for="password">{{ 'page.myTransactions.operationAmount' | translate}} ({{activity.operationAmountFormatted}} per cripto)</label>
             <div class="controls">
               <input disabled [(ngModel)]="transaction.operationAmount" type="text" id="operationAmount" name="operationAmount" placeholder="" class="input-xlarge">
            </div>
@@ -44,7 +44,7 @@
     
           <div class="control-group">
             <!-- Password-->
-            <label class="control-label" for="user">User</label>
+            <label class="control-label" for="user">{{ 'page.transaction.user' | translate}}</label>
             <div class="controls">
               <input disabled [(ngModel)]="activity.user" type="text" id="user" name="user" placeholder="" class="input-xlarge">
            </div>
@@ -52,7 +52,7 @@
     
           <div class="control-group">
             <!-- Password-->
-            <label class="control-label" for="cvu">Reputation</label>
+            <label class="control-label" for="cvu">{{ 'page.transaction.reputation' | translate}}</label>
             <div class="controls">
               <input disabled [(ngModel)]="activity.reputationPoints" type="text" id="reputationPoints" name="reputationPoints" placeholder="" class="input-xlarge">
             </div>
@@ -60,14 +60,14 @@
     
           <div class="control-group" *ngIf="activity.type == 1">
             <!-- Password-->
-            <label class="control-label" for="cwallet">CVU Destination</label>
+            <label class="control-label" for="cwallet">{{ 'page.transaction.cvuDestination' | translate}}</label>
             <div class="controls">
               <input [(ngModel)]="activity.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
             </div>
           </div>
           <div class="control-group" *ngIf="activity.type == 2">
             <!-- Password-->
-            <label class="control-label" for="cwallet">Wallet Destination</label>
+            <label class="control-label" for="cwallet">{{ 'page.transaction.walletDestination' | translate}}</label>
             <div class="controls">
               <input [(ngModel)]="activity.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
             </div>
@@ -76,10 +76,10 @@
           <div class="control-group">
             <!-- Button -->
             <div class="controls">
-              <button *ngIf="activity.type == 1"  [disabled]="transactionSent" class="btn btn-success" style="margin:2px" (click)="create()">Confirm Transfer</button>
-              <button *ngIf="activity.type == 2" class="btn btn-success" style="margin:2px" (click)="create()">Sell</button>
-              <button *ngIf="!cancelled" class="btn btn-danger"  style="margin:2px" [disabled]="confirmed" (click)="cancel()">Cancel</button>     
-              <button *ngIf="cancelled || confirmed "  class="btn btn-danger"  style="margin:2px" (click)="close()">Close</button>       
+              <button *ngIf="activity.type == 1"  [disabled]="transactionSent" class="btn btn-success" style="margin:2px" (click)="create()">{{ 'page.transaction.confirmTransfer' | translate}}</button>
+              <button *ngIf="activity.type == 2" class="btn btn-success" style="margin:2px" (click)="create()">{{ 'page.myTransactions.sell' | translate}}</button>
+              <button *ngIf="!cancelled" class="btn btn-danger"  style="margin:2px" [disabled]="confirmed" (click)="cancel()">{{ 'page.myTransactions.cancel' | translate}}</button>     
+              <button *ngIf="cancelled || confirmed "  class="btn btn-danger"  style="margin:2px" (click)="close()">{{ 'page.transaction.close' | translate}}</button>       
             </div>
           </div>
         </fieldset>

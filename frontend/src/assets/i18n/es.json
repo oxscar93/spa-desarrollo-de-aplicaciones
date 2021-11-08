@@ -1,0 +1,86 @@
+{
+    "page": {
+        "app": {
+            "language": "Idioma"
+        },
+        "header": {
+            "users": "Usuarios",
+            "activities": "Actividades Compra/Venta",
+            "activeCriptos": "Criptos Activos",
+            "prices": "Precios",
+            "myTransactions": "Mis Transacciones",
+            "logout": "Cerrar Sesión"
+        },
+        "login": {
+            "login": "Iniciar sesión",
+            "register": "Registrar",
+            "username": "Nombre Usuario",
+            "password": "Contraseña"
+        },
+        "userRegistration": {
+            "email": "Email",
+            "registerUser": "Registrar Usuario",
+            "Address": "Dirección",
+            "cvu": "CVU",
+            "criptoWallet": "Billetera Cripto"
+        },
+        "users": {
+            "title": "Usuarios",
+            "id": "ID",
+            "name": "Nombre",
+            "lastname": "Apellido"
+        },
+        "criptos": {
+            "activeCriptos": "Criptos Activos",
+            "name": "Nombre",
+            "price": "Precio",
+            "date": "Fecha",
+            "actions": "Acciones",
+            "buy": "Comprar",
+            "sell": "Vender",
+            "buyCriptos": "Comprar Criptos",
+            "criptoCount": "Cantidad de Criptos",
+            "operationAmount": "Monto de la operación",
+            "sellCriptos": "Vender Criptos",
+            "lastTimeUpdated": "Última actualización: "
+        },
+        "myTransactions": {
+            "title": "Mis Transacciones",
+            "type": "Tipo",
+            "cripto": "Cripto",
+            "buy": "Comprar",
+            "sell": "Vender",
+            "criptoCount": "Cantidad de Criptos",
+            "operationAmount": "Monto de la operación",
+            "action": "Acción",
+            "cancelled": "Cancelada",
+            "confirmed": "Confirmada",
+            "cancel": "Cancelar"
+        },
+        "transactions": {
+            "title": "Transacción",
+            "user": "Usuario",
+            "reputation": "Reputación",
+            "cvuDestination": "CVU Destino",
+            "walletDestination": "Billetera Destino",
+            "confirmTransfer": "Confirmar Transferencia",
+            "criptoCount": "Cantidad de criptos",
+            "close": "Cerrar",
+            "operationCancelled": "Operación Cancelada!",
+            "operationConfirmed": "Operación Confirmada!"
+        },
+        "sellBuy": {
+            "title": "Actividades Compra/Venta",
+            "type": "Tipo",
+            "cripto": "Cripto",
+            "buy": "Comprar",
+            "sell": "Vender",
+            "criptoCount": "Cantidad de Criptos",
+            "operationAmount": "Monto de la operación",
+            "criptoPrice": "Precio de cripto",
+            "reputationPoints": "Puntos de reputación",
+            "operationCount": "Cantidad de operaciones",
+            "noOperations": "Sin operaciones"
+        }
+    }
+}

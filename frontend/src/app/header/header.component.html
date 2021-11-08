@@ -7,23 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/users">Users</a>
+          <a class="nav-link" href="/users">{{ 'page.header.users' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/activities">Sell/Buy Activities</a>
+          <a class="nav-link" href="/activities">{{ 'page.header.activities' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/criptos">Active Criptos</a>
+          <a class="nav-link" href="/criptos">{{ 'page.header.activeCriptos' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/prices">Prices</a>
+          <a class="nav-link" href="/prices">{{ 'page.header.prices' | translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/my-transactions">My Transactions</a>
+          <a class="nav-link" href="/my-transactions">{{ 'page.header.myTransactions' | translate}}</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-success my-2 my-sm-0" (click)="logout()">Logout</button>
+        <button class="btn btn-success my-2 my-sm-0" (click)="logout()">{{ 'page.header.logout' | translate}}</button>
       </form>
     </div>
   </nav>

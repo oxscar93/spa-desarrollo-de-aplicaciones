@@ -1,19 +1,19 @@
-<h5 class="text-center">Sell/Buy Activities</h5>
+<h5 class="text-center">{{ 'page.sellBuy.title' | translate}}</h5>
 <br>
 
 <div class="col-auto">
     <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Date</th>
-        <th scope="col">Cripto</th>
-        <th scope="col">Cripto Count</th>
-        <th scope="col">Cripto Price</th>
-        <th scope="col">Operation Amount</th>
-        <th scope="col">User</th>
-        <th scope="col">Operation Count</th>
-        <th scope="col">Reputation Points</th>
+        <th scope="col">{{ 'page.sellBuy.type' | translate}}</th>
+        <th scope="col">{{ 'page.criptos.date' | translate}}</th>
+        <th scope="col">{{ 'page.sellBuy.cripto' | translate}}</th>
+        <th scope="col">{{ 'page.sellBuy.criptoCount' | translate}}</th>
+        <th scope="col">{{ 'page.sellBuy.criptoPrice' | translate}}</th>
+        <th scope="col">{{ 'page.sellBuy.operationAmount' | translate}}</th>
+        <th scope="col">{{ 'page.transactions.user' | translate}}</th>
+        <th scope="col">{{ 'page.sellBuy.operationCount' | translate}}</th>
+        <th scope="col">{{ 'page.sellBuy.reputationPoints' | translate}}</th>
     </tr>
     </thead>
     <tbody style="cursor: pointer;">
@@ -28,7 +28,7 @@
         <td>{{ activity.user }}</td>
         <td>{{ activity.operationCount }}</td>
         <td *ngIf="activity.reputationPoints != 0">{{ activity.reputationPoints }}</td>
-        <td *ngIf="activity.reputationPoints == 0">No Operations</td>
+        <td *ngIf="activity.reputationPoints == 0">{{ 'page.sellBuy.noOperations' | translate}}</td>
     </tr>
     </tbody>
     </table>
