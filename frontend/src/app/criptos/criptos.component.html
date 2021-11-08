@@ -1,14 +1,14 @@
-<h5 class="text-center">Active Criptos</h5>
+<h5 class="text-center">{{ 'page.criptos.activeCriptos' | translate}}</h5>
 <br>
 
 <div class="col-auto">
     <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Date</th>
-        <th scope="col">Actions</th>
+        <th scope="col">{{ 'page.criptos.name' | translate}}</th>
+        <th scope="col">{{ 'page.criptos.price' | translate}}</th>
+        <th scope="col">{{ 'page.criptos.date' | translate}}</th>
+        <th scope="col">{{ 'page.criptos.actions' | translate}}</th>
     </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
         <td>{{ cripto.name }}</td>
         <td>{{ cripto.price }}</td>
         <td>{{ cripto.date }}</td>
-        <td><button class="btn btn-success" (click)="showModal(modalData, cripto, 1)">Buy</button> - <button class="btn btn-info" (click)="showModal(modalDataSell, cripto, 2)">Sell</button></td>
+        <td><button class="btn btn-success" (click)="showModal(modalData, cripto, 1)">{{ 'page.criptos.buy' | translate}}</button> - <button class="btn btn-info" (click)="showModal(modalDataSell, cripto, 2)">{{ 'page.criptos.sell' | translate}}</button></td>
     </tr>
     </tbody>
     </table>
@@ -25,7 +25,7 @@
 
 <ng-template #modalData let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Buy Criptos</h4>
+    <h4 class="modal-title" id="modal-basic-title">{{ 'page.criptos.buyCriptos' | translate}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">×</span>
     </button>
@@ -33,27 +33,27 @@
   <div class="modal-body">
     <div class="control-group">
         <!-- Username -->
-        <label class="control-label"  for="name">Cripto Count</label>
+        <label class="control-label"  for="name">{{ 'page.criptos.criptoCount' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
         </div>
       </div>
 
   <div class="control-group">
-    <label class="control-label"  for="amount">Operation Amount</label>
+    <label class="control-label"  for="amount">{{ 'page.criptos.operationAmount' | translate}}</label>
       <div class="controls">
         <input [(ngModel)]="sellBuy.operationAmount" type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
       </div>
     </div>
 </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Buy</button>
+    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">{{ 'page.criptos.activeCriptos' | translate}}Buy</button>
   </div>
 </ng-template>
 
 <ng-template #modalDataSell let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Sell Criptos</h4>
+      <h4 class="modal-title" id="modal-basic-title">{{ 'page.criptos.sellCriptos' | translate}}</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">×</span>
       </button>
@@ -61,19 +61,19 @@
     <div class="modal-body">
       <div class="control-group">
           <!-- Username -->
-          <label class="control-label"  for="name">Cripto Count</label>
+          <label class="control-label"  for="name">{{ 'page.criptos.criptoCount' | translate}}</label>
           <div class="controls">
             <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
           </div>
         </div>
         <div class="control-group">
-        <label class="control-label"  for="amount">Operation Amount</label>
+        <label class="control-label"  for="amount">{{ 'page.criptos.operationAmount' | translate}}</label>
           <div class="controls">
             <input [(ngModel)]="sellBuy.operationAmount" type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
           </div>
         </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Sell</button>
+      <button type="button" class="btn btn-success" (click)="modal.close('Save click')">{{ 'page.criptos.sell' | translate}}</button>
     </div>
   </ng-template>

@@ -1,0 +1,86 @@
+{
+    "page": {
+        "app": {
+            "language": "Language"
+        },
+        "header": {
+            "users": "Users",
+            "activities": "Sell/Buy Activities",
+            "activeCriptos": "Active Criptos",
+            "prices": "Prices",
+            "myTransactions": "My Transactions",
+            "logout": "Logout"
+        },
+        "login": {
+            "login": "Login",
+            "register": "Register",
+            "username": "Username",
+            "password": "Password"
+        },
+        "users": {
+            "title": "Users",
+            "id": "ID",
+            "name": "Name",
+            "lastname": "LastName"
+        },
+        "userRegistration": {
+            "email": "E-mail",
+            "registerUser": "Register User",
+            "Address": "address",
+            "cvu": "CVU",
+            "criptoWallet": "Cripto Wallet"
+        },
+        "criptos": {
+            "activeCriptos": "Active Criptos",
+            "name": "Name",
+            "price": "Price",
+            "date": "Date",
+            "actions": "Actions",
+            "buy": "Buy",
+            "sell": "Sell",
+            "buyCriptos": "Buy Criptos",
+            "criptoCount": "Cripto Count",
+            "operationAmount": "Operation Amount",
+            "sellCriptos": "Sell Criptos",
+            "lastTimeUpdated": "Last Time Updated: "
+        },
+        "myTransactions": {
+            "title": "My Transactions",
+            "type": "Type",
+            "cripto": "Cripto",
+            "buy": "Buy",
+            "sell": "Sell",
+            "criptoCount": "Cripto Count",
+            "operationAmount": "Operation Amount",
+            "action": "Action",
+            "cancelled": "Cancelled",
+            "confirmed": "Confirmed",
+            "cancel": "Cancel"
+        },
+        "transactions": {
+            "title": "Transaction",
+            "user": "User",
+            "reputation": "Reputation",
+            "cvuDestination": "CVU Destination",
+            "walletDestination": "Wallet Destination",
+            "confirmTransfer": "Confirm Transfer",
+            "criptoCount": "Cripto Count",
+            "close": "Close",
+            "operationCancelled": "Operation Cancelled!",
+            "operationConfirmed": "Operation Confirmed!"
+        },
+        "sellBuy": {
+            "title": "Sell/Buy Activities",
+            "type": "Type",
+            "cripto": "Cripto",
+            "buy": "Buy",
+            "sell": "Sell",
+            "criptoCount": "Cripto Count",
+            "criptoPrice": "Cripto Price",
+            "reputationPoints": "Reputation Points",
+            "operationAmount": "Operation Amount",
+            "operationCount": "Operation Count",
+            "noOperations": "No Operations"
+        }
+    }
+}
