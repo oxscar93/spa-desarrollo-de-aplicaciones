@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @EnableCaching(proxyTargetClass = true)
 @Component
 public class CachingConfig {
-
     CacheManager cache;
 
     @Bean
