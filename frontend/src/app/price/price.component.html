@@ -1,13 +1,13 @@
-<h5 class="text-center">Prices</h5>
+<h5 class="text-center">{{ 'page.header.prices' | translate}}</h5>
 <br>
 
-<p class="text-right text-info" *ngIf="updated">Last time updated: {{ timeUpdated.toLocaleString() }}</p>
+<p class="text-right text-info" *ngIf="updated">{{ 'page.criptos.lastTimeUpdated' | translate}} {{ timeUpdated.toLocaleString() }}</p>
 <div class="col-auto">
     <table class="table table-striped">
     <thead>
     <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
+        <th scope="col">{{ 'page.criptos.name' | translate}}</th>
+        <th scope="col">{{ 'page.criptos.price' | translate}}</th>
     </tr>
     </thead>
     <tbody>

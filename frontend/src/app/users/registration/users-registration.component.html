@@ -2,11 +2,11 @@
 <form class="form-horizontal" action='' method="POST">
     <fieldset>
       <div id="legend">
-        <legend class="">Register User</legend>
+        <legend class="">{{ 'page.userRegistration.registerUser' | translate}}</legend>
       </div>
       <div class="control-group">
         <!-- Username -->
-        <label class="control-label"  for="name">Name</label>
+        <label class="control-label"  for="name">{{ 'page.users.name' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.name" type="text" id="name" name="name" placeholder="" class="input-xlarge">
         </div>
@@ -14,7 +14,7 @@
 
       <div class="control-group">
         <!-- Username -->
-        <label class="control-label"  for="LastName">LastName</label>
+        <label class="control-label"  for="LastName">{{ 'page.users.lastName' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.lastName" type="text" id="LastName" name="LastName" placeholder="" class="input-xlarge">
        </div>
@@ -22,7 +22,7 @@
    
       <div class="control-group">
         <!-- E-mail -->
-        <label class="control-label" for="email">E-mail</label>
+        <label class="control-label" for="email">{{ 'page.userRegistration.email' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.email" type="text" id="email" name="email" placeholder="" class="input-xlarge">
         </div>
@@ -30,7 +30,7 @@
    
       <div class="control-group">
         <!-- Password-->
-        <label class="control-label" for="password">Password</label>
+        <label class="control-label" for="password">{{ 'page.login.password' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.password" type="password" id="password" name="password" placeholder="" class="input-xlarge">
        </div>
@@ -38,7 +38,7 @@
 
       <div class="control-group">
         <!-- Password-->
-        <label class="control-label" for="address">Address</label>
+        <label class="control-label" for="address">{{ 'page.userRegistration.address' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.address" type="text" id="address" name="address" placeholder="" class="input-xlarge">
        </div>
@@ -46,7 +46,7 @@
 
       <div class="control-group">
         <!-- Password-->
-        <label class="control-label" for="cvu">CVU</label>
+        <label class="control-label" for="cvu">{{ 'page.userRegistration.cvu' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.cvu" type="text" id="cvu" name="cvu" placeholder="" class="input-xlarge">
         </div>
@@ -54,7 +54,7 @@
 
       <div class="control-group">
         <!-- Password-->
-        <label class="control-label" for="cwallet">Cripto Wallet</label>
+        <label class="control-label" for="cwallet">{{ 'page.userRegistration.criptoWallet' | translate}}</label>
         <div class="controls">
           <input [(ngModel)]="user.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
         </div>
@@ -63,7 +63,7 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success" (click)="registerUser()">Register</button>
+          <button class="btn btn-success" (click)="registerUser()">{{ 'page.login.register' | translate}}</button>
         </div>
       </div>
     </fieldset>
