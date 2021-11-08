@@ -14,14 +14,11 @@ export class CriptosComponent implements OnInit {
   closeModal: string;
   criptos:any;
   sellBuy:any;
-  updated:boolean;
-  timeUpdated:Date;
 
-  constructor(private http: HttpClient, private modalService: NgbModal) { this.timeUpdated = new Date(); this.closeModal = "";  this.updated = false; }
+  constructor(private http: HttpClient, private modalService: NgbModal) { this.closeModal = "";  }
 
   ngOnInit(): void {
     this.getCriptos();
-    this.startPolling();
     this.sellBuy = {};
   }
 
@@ -29,13 +26,7 @@ export class CriptosComponent implements OnInit {
     this.http.get(environment.api + "api/criptos/actives").subscribe((data) =>     
     {
       this.criptos = data;  
-      this.timeUpdated = this.criptos[0].date;
-      this.updated = true;
    });
-  }
-
-  startPolling(){
-    interval(600000).subscribe((i) => this.getCriptos() )
   }
 
   showModal(content:any, cripto:any, type:any) {

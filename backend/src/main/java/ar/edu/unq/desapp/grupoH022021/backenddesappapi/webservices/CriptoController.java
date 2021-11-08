@@ -6,6 +6,7 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.ActiveCriptoDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.CriptoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,8 @@ public class CriptoController {
     public List<CriptoDto> prices() {
         return criptoService.getPrices();
     }
-    
+
+
     @GetMapping("/api/criptos/actives")
     public List<ActiveCriptoDto> actives() {
         return criptoService.getActiveCriptos();

@@ -6,9 +6,11 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.Import;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.configuration.SwaggerConfig;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 @Import(SwaggerConfig.class)
+@EnableScheduling
 public class BackendDesappApiApplication {
 
 	public static void main(String[] args) {

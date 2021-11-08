@@ -1,10 +1,12 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.model;
 
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "criptos")
-public class Cripto {
+public class Cripto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,9 +14,6 @@ public class Cripto {
 	
 	@Column
 	public String name;
-
-	@Column
-	public Double price;
 	
 	public Cripto() {
 		super();

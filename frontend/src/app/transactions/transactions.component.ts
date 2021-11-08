@@ -75,8 +75,12 @@ export class TransactionsComponent implements OnInit {
     this.transaction.activityId = this.activity.id;
     this.transaction.id = this.transactionId;
 
-    this.intervalId.unsubscribe();
-    this.timerOn = false;   
+    if (this.intervalId != null){
+      this.intervalId.unsubscribe();
+      this.timerOn = false; 
+    }
+
+      
 
     this.http.post(environment.api + "api/transactions/cancel", this.transaction)
     .subscribe((data:any) =>

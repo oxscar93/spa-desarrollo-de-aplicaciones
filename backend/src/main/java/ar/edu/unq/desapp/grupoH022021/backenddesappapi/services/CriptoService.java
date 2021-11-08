@@ -1,32 +1,30 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.services;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.configuration.EnvironmentConfig;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.ActiveCriptoDto;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.CriptoDto;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.DollarDto;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Cripto;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.CriptoRepository;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.configuration.EnvironmentConfig;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.ActiveCriptoDto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.CriptoDto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.DollarDto;
-
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Cripto;
-import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.CriptoRepository;
-
 @Service
 public class CriptoService {
 
 	private CriptoRepository repository;
-
-	RestService restService;
-
+	private RestService restService;
 	private EnvironmentConfig config;
 
 	@Autowired
@@ -49,6 +47,7 @@ public class CriptoService {
 		return this.repository.findAll();
 	}
 
+	@Cacheable(value="prices")
 	public List<CriptoDto> getPrices(){
 		List<Cripto> criptos = findAll();
 		List<CriptoDto> result = new ArrayList<CriptoDto>();
@@ -60,7 +59,8 @@ public class CriptoService {
 
 		return result;
 	}
-	
+
+	@Cacheable(value="criptos")
 	public List<ActiveCriptoDto> getActiveCriptos(){
 
 		List<ActiveCriptoDto> result = new ArrayList<ActiveCriptoDto>();

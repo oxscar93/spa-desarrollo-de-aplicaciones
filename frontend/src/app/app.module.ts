@@ -14,7 +14,6 @@ import { AuthService } from './_services/auth.service';
 import { HttpAuthInterceptor } from './_services/httpInterceptor';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { PriceComponent } from './price/price.component';
 import { SellBuyComponent } from './sell-buy/sell-buy.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { MyTransactionsComponent } from './my-transactions/my-transactions.component';
@@ -29,7 +28,6 @@ import { MyTransactionsComponent } from './my-transactions/my-transactions.compo
     LoginComponent,
     HeaderComponent,
     HomeComponent,
-    PriceComponent,
     SellBuyComponent,
     TransactionsComponent,
     MyTransactionsComponent
