@@ -2,6 +2,7 @@ package ar.edu.unq.desapp.grupoH022021.backenddesappapi.webservices;
 
 import java.util.List;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.aspects.Log;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.ActiveCriptoDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.CriptoDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +20,21 @@ public class CriptoController {
 
 	@Autowired
     private CriptoService criptoService;
-	
+
+	@Log
 	@GetMapping("/api/criptos")
     public List<Cripto> criptos() {
         List<Cripto> list = criptoService.findAll();
         return list;
     }
 
+    @Log
     @GetMapping("/api/criptos/prices")
     public List<CriptoDto> prices() {
         return criptoService.getPrices();
     }
 
-
+    @Log
     @GetMapping("/api/criptos/actives")
     public List<ActiveCriptoDto> actives() {
         return criptoService.getActiveCriptos();
