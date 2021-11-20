@@ -18,7 +18,6 @@ export class CriptosComponent implements OnInit {
   newDate: Date = new Date();
   newDateString:string="";
   locale:any;
-  symbol:string="ARS";
 
   constructor(private http: HttpClient, private modalService: NgbModal, public translate: TranslateService) { this.closeModal = "";  }
 
@@ -31,16 +30,7 @@ export class CriptosComponent implements OnInit {
         .subscribe((langChangeEvent: LangChangeEvent) => {
             this.locale = langChangeEvent.lang;
             this.newDateString = this.newDate.toLocaleString(this.locale);
-            this.translate.get('page.app.symbol').subscribe((res) => {
-              this.symbol = res;
-            });
         })
-  }
-
-  getSymbol() {
-    this.translate.get('page.app.symbol').subscribe((res) => {
-      this.symbol = res;
-    });
   }
 
   getCriptos() {

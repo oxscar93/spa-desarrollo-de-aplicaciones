@@ -75,7 +75,7 @@ public class CriptoService {
 			activeCriptoDto.name = cripto.symbol;
 			Double criptoPrice = !cripto.price.equalsIgnoreCase("") ? Double.parseDouble(cripto.price) : 0;
 			Double price = criptoPrice * usd;
-			activeCriptoDto.price = NumberUtils.formatWithCurrencyAux(price);
+			activeCriptoDto.price = NumberUtils.formatWithCurrency(price);
 			activeCriptoDto.date = date;
 			activeCriptoDto.dateTime = instant.toString();
 			activeCriptoDto.priceNumber = price;
