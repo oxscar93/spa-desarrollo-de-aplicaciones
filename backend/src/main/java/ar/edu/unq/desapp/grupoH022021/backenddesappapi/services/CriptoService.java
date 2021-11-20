@@ -9,7 +9,6 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.CriptoReposi
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

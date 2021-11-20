@@ -15,8 +15,8 @@
     <tr *ngFor="let cripto of criptos;">
         <td>{{ cripto.name }}</td>
         <td>{{ cripto.price }}</td>
-        <td>{{ cripto.date }}</td>
-        <td><button class="btn btn-success" (click)="showModal(modalData, cripto, 1)">{{ 'page.criptos.buy' | translate}}</button> - <button class="btn btn-info" (click)="showModal(modalDataSell, cripto, 2)">{{ 'page.criptos.sell' | translate}}</button></td>
+        <td>{{ newDateString }}</td>
+        <td><button class="btn btn-success" (click)="showModal(modalData, cripto, 1)">{{ 'page.criptos.buy' | translate }}</button> - <button class="btn btn-info" (click)="showModal(modalDataSell, cripto, 2)">{{ 'page.criptos.sell' | translate}}</button></td>
     </tr>
     </tbody>
     </table>
