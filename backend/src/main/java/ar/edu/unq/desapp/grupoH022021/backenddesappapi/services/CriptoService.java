@@ -9,7 +9,6 @@ import ar.edu.unq.desapp.grupoH022021.backenddesappapi.repositories.CriptoReposi
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.DateTimeUtils;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.utils.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -76,7 +75,7 @@ public class CriptoService {
 			activeCriptoDto.name = cripto.symbol;
 			Double criptoPrice = !cripto.price.equalsIgnoreCase("") ? Double.parseDouble(cripto.price) : 0;
 			Double price = criptoPrice * usd;
-			activeCriptoDto.price = NumberUtils.formatWithCurrency(price);
+			activeCriptoDto.price = NumberUtils.formatWithCurrencyAux(price);
 			activeCriptoDto.date = date;
 			activeCriptoDto.dateTime = instant.toString();
 			activeCriptoDto.priceNumber = price;

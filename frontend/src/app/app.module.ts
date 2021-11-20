@@ -19,10 +19,22 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { MyTransactionsComponent } from './my-transactions/my-transactions.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeFrExtra from '@angular/common/locales/extra/fr';
+import { LocalizedDatePipe } from './localized-date.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+registerLocaleData(localeFr, 'es', localeFrExtra);
+registerLocaleData(localeFr, 'en', localeFrExtra);
+registerLocaleData(localeFr, 'fr', localeFrExtra);
+
+const PIPES = [
+  LocalizedDatePipe
+];
 
 @NgModule({
   declarations: [
@@ -35,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     SellBuyComponent,
     TransactionsComponent,
-    MyTransactionsComponent
+    MyTransactionsComponent,
+    ...PIPES
   ],
   imports: [
     BrowserModule,
@@ -53,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [AuthService,  { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [...PIPES]
 })
 export class AppModule { }

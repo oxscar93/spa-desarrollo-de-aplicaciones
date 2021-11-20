@@ -1,7 +1,8 @@
 {
     "page": {
         "app": {
-            "language": "Idioma"
+            "language": "Idioma",
+            "symbol": "ARS"
         },
         "header": {
             "users": "Usuarios",

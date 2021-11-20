@@ -1,7 +1,8 @@
 {
     "page": {
         "app": {
-            "language": "Language"
+            "language": "Language",
+            "symbol": "USD"
         },
         "header": {
             "users": "Users",
