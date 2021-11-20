@@ -52,6 +52,7 @@
             "sell": "Vender",
             "criptoCount": "Cantidad de Criptos",
             "operationAmount": "Monto de la operación",
+            "confirmTransfer": "Confirmar Transferencia",
             "action": "Acción",
             "cancelled": "Cancelada",
             "confirmed": "Confirmada",

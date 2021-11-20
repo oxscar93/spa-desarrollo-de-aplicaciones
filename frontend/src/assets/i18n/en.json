@@ -52,6 +52,7 @@
             "sell": "Sell",
             "criptoCount": "Cripto Count",
             "operationAmount": "Operation Amount",
+            "confirmTransfer": "Confirm Transfer",
             "action": "Action",
             "cancelled": "Cancelled",
             "confirmed": "Confirmed",
