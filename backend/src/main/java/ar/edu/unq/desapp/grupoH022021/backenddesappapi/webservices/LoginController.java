@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoH022021.backenddesappapi.webservices;
 
+import ar.edu.unq.desapp.grupoH022021.backenddesappapi.aspects.Log;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.dto.TokenDto;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.TokenService;
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.services.UserService;
@@ -18,6 +19,7 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Log
     @PostMapping("/api/auth")
     public ResponseEntity<TokenDto> login(@RequestParam("user") String username, @RequestParam("password") String pwd) throws Exception {
         try{
