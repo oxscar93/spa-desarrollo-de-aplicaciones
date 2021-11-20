@@ -57,7 +57,7 @@
             "confirmed": "Confirmada",
             "cancel": "Cancelar"
         },
-        "transactions": {
+        "transaction": {
             "title": "Transacción",
             "user": "Usuario",
             "reputation": "Reputación",
