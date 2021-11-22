@@ -1,5 +1,5 @@
 <div class ="row justify-content-center">
-    <form class="form-horizontal" action='' method="POST">
+  <form  class="form-horizontal" #f="ngForm" (ngSubmit)="create()">
         <fieldset>
           <div id="legend">
             <legend class="">{{ 'page.transaction.title' | translate}}  
@@ -30,7 +30,7 @@
             <!-- E-mail -->
             <label class="control-label" for="email">{{ 'page.myTransactions.criptoCount' | translate}} (max {{activity.criptoCount}})</label>
             <div class="controls">
-              <input (change)="calculateAmount()" [min]="0" [max]="activity.criptoCount" [(ngModel)]="transaction.criptoCount" type="number" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
+              <input (change)="calculateAmount()" required [ngClass]="{'invalid-field': !f.valid }" [min]="0" [max]="activity.criptoCount" [(ngModel)]="transaction.criptoCount" type="number" id="criptoCount" name="criptoCount" placeholder="" class="input-xlarge">
             </div>
           </div>
        
@@ -76,7 +76,7 @@
           <div class="control-group">
             <!-- Button -->
             <div class="controls">
-              <button *ngIf="activity.type == 1"  [disabled]="transactionSent" class="btn btn-success" style="margin:2px" (click)="create()">{{ 'page.transaction.confirmTransfer' | translate}}</button>
+              <button type="submit" *ngIf="activity.type == 1"  [disabled]="transactionSent || !f.valid" class="btn btn-success" style="margin:2px">{{ 'page.transaction.confirmTransfer' | translate}}</button>
               <button *ngIf="activity.type == 2" class="btn btn-success" style="margin:2px" (click)="create()">{{ 'page.myTransactions.sell' | translate}}</button>
               <button *ngIf="!cancelled" class="btn btn-danger"  style="margin:2px" [disabled]="confirmed" (click)="cancel()">{{ 'page.myTransactions.cancel' | translate}}</button>     
               <button *ngIf="cancelled || confirmed "  class="btn btn-danger"  style="margin:2px" (click)="close()">{{ 'page.transaction.close' | translate}}</button>       

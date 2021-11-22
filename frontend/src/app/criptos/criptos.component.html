@@ -24,6 +24,7 @@
 
 
 <ng-template #modalData let-modal>
+  <form #f="ngForm" (ngSubmit)="modal.close('Save click')">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">{{ 'page.criptos.buyCriptos' | translate}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -31,27 +32,30 @@
     </button>
   </div>
   <div class="modal-body">
+  
     <div class="control-group">
         <!-- Username -->
         <label class="control-label"  for="name">{{ 'page.criptos.criptoCount' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
+          <input [ngClass]="{'invalid-field': !f.valid }" [(ngModel)]="sellBuy.criptoCount" required type="number" id="count" name="count" placeholder="" class="input-xlarge">
         </div>
       </div>
 
-  <div class="control-group">
+   <div class="control-group">
     <label class="control-label"  for="amount">{{ 'page.criptos.operationAmount' | translate}}</label>
       <div class="controls">
-        <input [(ngModel)]="sellBuy.operationAmount" type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
+        <input [ngClass]="{'invalid-field': !f.valid }" [(ngModel)]="sellBuy.operationAmount" required type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
       </div>
-    </div>
+    </div>  
 </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">{{ 'page.criptos.activeCriptos' | translate}}Buy</button>
+    <button type="submit" class="btn btn-success" [disabled]="!f.valid" (click)="modal.close('Save click')">{{ 'page.criptos.buy' | translate}}</button>
   </div>
+</form>
 </ng-template>
 
 <ng-template #modalDataSell let-modal>
+  <form #f="ngForm" (ngSubmit)="modal.close('Save click')">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">{{ 'page.criptos.sellCriptos' | translate}}</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -59,21 +63,24 @@
       </button>
     </div>
     <div class="modal-body">
+    
       <div class="control-group">
           <!-- Username -->
           <label class="control-label"  for="name">{{ 'page.criptos.criptoCount' | translate}}</label>
           <div class="controls">
-            <input [(ngModel)]="sellBuy.criptoCount" type="number" id="count" name="count" placeholder="" class="input-xlarge">
+            <input [ngClass]="{'invalid-field': !f.valid }" [(ngModel)]="sellBuy.criptoCount" required type="number" id="count" name="count" placeholder="" class="input-xlarge">
           </div>
         </div>
-        <div class="control-group">
-        <label class="control-label"  for="amount">{{ 'page.criptos.operationAmount' | translate}}</label>
-          <div class="controls">
-            <input [(ngModel)]="sellBuy.operationAmount" type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
-          </div>
+  
+     <div class="control-group">
+      <label class="control-label"  for="amount">{{ 'page.criptos.operationAmount' | translate}}</label>
+        <div class="controls">
+          <input [ngClass]="{'invalid-field': !f.valid }" [(ngModel)]="sellBuy.operationAmount" required type="number" id="amount" name="amount" placeholder="" class="input-xlarge">
         </div>
-    </div>
+      </div>  
+  </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-success" (click)="modal.close('Save click')">{{ 'page.criptos.sell' | translate}}</button>
+      <button type="submit" class="btn btn-success" [disabled]="!f.valid" (click)="modal.close('Save click')">{{ 'page.criptos.sell' | translate}}</button>
     </div>
+  </form>
   </ng-template>

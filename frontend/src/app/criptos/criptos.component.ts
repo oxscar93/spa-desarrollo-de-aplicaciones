@@ -18,8 +18,10 @@ export class CriptosComponent implements OnInit {
   newDate: Date = new Date();
   newDateString:string="";
   locale:any;
+  ngForm:any;
+  valid:boolean;
 
-  constructor(private http: HttpClient, private modalService: NgbModal, public translate: TranslateService) { this.closeModal = "";  }
+  constructor(private http: HttpClient, private modalService: NgbModal, public translate: TranslateService) { this.closeModal = "";   this.valid = false; }
 
   ngOnInit(): void {
     this.getCriptos();

@@ -22,7 +22,8 @@ export class TransactionsComponent implements OnInit {
   minutes:string;
   transactionId: any;
   intervalId: any;
-
+  ngForm:any;
+  
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {  
     
     this.activity =  {}

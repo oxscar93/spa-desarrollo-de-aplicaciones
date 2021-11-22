@@ -20,7 +20,7 @@
         "userRegistration": {
             "email": "Email",
             "registerUser": "Registrar Usuario",
-            "Address": "Dirección",
+            "address": "Dirección",
             "cvu": "CVU",
             "criptoWallet": "Billetera Cripto"
         },
@@ -53,6 +53,7 @@
             "criptoCount": "Cantidad de Criptos",
             "operationAmount": "Monto de la operación",
             "confirmTransfer": "Confirmar Transferencia",
+            "confirmReception" : "Confirmar Recepción",
             "action": "Acción",
             "cancelled": "Cancelada",
             "confirmed": "Confirmada",

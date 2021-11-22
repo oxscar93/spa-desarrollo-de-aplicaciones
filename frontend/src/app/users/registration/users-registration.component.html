@@ -1,5 +1,5 @@
 <div class ="row justify-content-center">
-<form class="form-horizontal" action='' method="POST">
+<form class="form-horizontal" #f="ngForm" (ngSubmit)="registerUser()">
     <fieldset>
       <div id="legend">
         <legend class="">{{ 'page.userRegistration.registerUser' | translate}}</legend>
@@ -8,15 +8,15 @@
         <!-- Username -->
         <label class="control-label"  for="name">{{ 'page.users.name' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.name" type="text" id="name" name="name" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.name" required [ngClass]="{'invalid-field': !f.valid }" type="text" id="name" name="name" placeholder="" class="input-xlarge">
         </div>
       </div>
 
       <div class="control-group">
         <!-- Username -->
-        <label class="control-label"  for="LastName">{{ 'page.users.lastName' | translate}}</label>
+        <label class="control-label"  for="LastName">{{ 'page.users.lastname' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.lastName" type="text" id="LastName" name="LastName" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.lastName"  required [ngClass]="{'invalid-field': !f.valid }" type="text" id="LastName" name="LastName" placeholder="" class="input-xlarge">
        </div>
       </div>
    
@@ -24,7 +24,7 @@
         <!-- E-mail -->
         <label class="control-label" for="email">{{ 'page.userRegistration.email' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.email" type="text" id="email" name="email" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.email" required [ngClass]="{'invalid-field': !f.valid }" type="text" id="email" name="email" placeholder="" class="input-xlarge">
         </div>
       </div>
    
@@ -32,7 +32,7 @@
         <!-- Password-->
         <label class="control-label" for="password">{{ 'page.login.password' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.password" type="password" id="password" name="password" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.password" required  [ngClass]="{'invalid-field': !f.valid }" type="password" id="password" name="password" placeholder="" class="input-xlarge">
        </div>
       </div>
 
@@ -40,7 +40,7 @@
         <!-- Password-->
         <label class="control-label" for="address">{{ 'page.userRegistration.address' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.address" type="text" id="address" name="address" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.address" required [ngClass]="{'invalid-field': !f.valid }" type="text" id="address" name="address" placeholder="" class="input-xlarge">
        </div>
       </div>
 
@@ -48,7 +48,7 @@
         <!-- Password-->
         <label class="control-label" for="cvu">{{ 'page.userRegistration.cvu' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.cvu" type="text" id="cvu" name="cvu" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.cvu"  required [ngClass]="{'invalid-field': !f.valid }" type="text" id="cvu" name="cvu" placeholder="" class="input-xlarge">
         </div>
       </div>
 
@@ -56,14 +56,14 @@
         <!-- Password-->
         <label class="control-label" for="cwallet">{{ 'page.userRegistration.criptoWallet' | translate}}</label>
         <div class="controls">
-          <input [(ngModel)]="user.criptoWallet" type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
+          <input [(ngModel)]="user.criptoWallet" [ngClass]="{'invalid-field': !f.valid }" required  type="text" id="cwallet" name="cwallet" placeholder="" class="input-xlarge">
         </div>
       </div>
       <br>
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success" (click)="registerUser()">{{ 'page.login.register' | translate}}</button>
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">{{ 'page.login.register' | translate}}</button>
         </div>
       </div>
     </fieldset>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UsersRegistrationComponent implements OnInit {
 
   user:any;
+  ngForm:any;
 
   constructor(private http: HttpClient, private router:Router) { }
 
@@ -25,6 +26,9 @@ export class UsersRegistrationComponent implements OnInit {
       this.user = {};
       alert("User registered successfully");
       this.router.navigate([""])
+    },
+    (error:any) => {
+      alert("Error ocurred while registering user. Try Again. " + error.error)
     }
     );
   }
