@@ -5,6 +5,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.CodeSignature;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -27,7 +28,14 @@ public class LogAspectAnnotation {
         logger.info("Request Captured. Method: " +  joinPoint.getSignature() + "with args: " + params + " At: " + LocalDateTime.now());
 
         long start = System.currentTimeMillis();
-        Object proceed = joinPoint.proceed();
+        Object proceed = null;
+
+        try{
+            proceed = joinPoint.proceed();
+        }
+        catch (Exception e){
+            logger.error("Request for " + codeSignature.getName() + " executed At: " + LocalDateTime.now() + " Failed with exception: " + e.getMessage());
+        }
 
         long executionTime = System.currentTimeMillis() - start;
 

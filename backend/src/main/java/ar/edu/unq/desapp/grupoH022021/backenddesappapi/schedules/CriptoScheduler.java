@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class CriptoScheduler {
     @CacheEvict(allEntries = true, value="criptos")
-    @Scheduled(fixedRate = 60000)
+    @Scheduled(fixedRate = 600000)
     public void evictAllcachesAtInterval() { }
 }
