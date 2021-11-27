@@ -1,7 +1,7 @@
 <h5 class="text-center">{{ 'page.criptos.activeCriptos' | translate}}</h5>
 <br>
 
-<div class="col-auto">
+<div class="col-auto showTable">
     <table class="table table-striped">
     <thead>
     <tr>
@@ -16,12 +16,20 @@
         <td>{{ cripto.name }}</td>
         <td>{{ cripto.price }}</td>
         <td>{{ newDateString }}</td>
-        <td><button class="btn btn-success" (click)="showModal(modalData, cripto, 1)">{{ 'page.criptos.buy' | translate }}</button> - <button class="btn btn-info" (click)="showModal(modalDataSell, cripto, 2)">{{ 'page.criptos.sell' | translate}}</button></td>
+        <td><button class="btn btn-success" title="{{ 'page.criptos.buy' | translate }}" (click)="showModal(modalData, cripto, 1)"><span class="material-icons">attach_money</span> </button> <button class="btn btn-info" title="{{ 'page.criptos.sell' | translate}}" (click)="showModal(modalDataSell, cripto, 2)"><span class="material-icons">shopping_cart</span></button></td>
     </tr>
     </tbody>
     </table>
 </div>
 
+<div class="card showCard" *ngFor="let cripto of criptos;">
+  <div class="card-body">
+    <h5 class="card-title">{{ 'page.criptos.name' | translate}}: {{ cripto.name }}</h5>
+    <p class="card-text">{{ 'page.criptos.price' | translate}}: {{ cripto.price }}</p>
+    <p class="card-text">{{ 'page.criptos.price' | translate}}: {{ newDateString }}</p>
+    <button class="btn btn-success" title="{{ 'page.criptos.buy' | translate }}" (click)="showModal(modalData, cripto, 1)"><span class="material-icons">attach_money</span></button>-<button class="btn btn-info" title="{{ 'page.criptos.sell' | translate}}" (click)="showModal(modalDataSell, cripto, 2)"><span class="material-icons">shopping_cart</span></button>
+  </div>
+</div>
 
 <ng-template #modalData let-modal>
   <form #f="ngForm" (ngSubmit)="modal.close('Save click')">

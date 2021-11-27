@@ -1,7 +1,7 @@
 <h5 class="text-center">{{ 'page.myTransactions.title' | translate}}</h5>
 <br>
 
-<div class="col-auto">
+<div class="col-auto showTable">
     <table class="table table-striped">
     <thead>
     <tr>
@@ -14,8 +14,8 @@
     </thead>
     <tbody style="cursor: pointer;">
     <tr *ngFor="let transaction of transactions;">
-        <td *ngIf="transaction.type == 2">{{ 'page.myTransactions.buy' | translate}}</td>
-        <td *ngIf="transaction.type == 1">{{ 'page.myTransactions.sell' | translate}}</td>
+        <td *ngIf="transaction.type == 2">{{ 'page.sellBuy.buyType' | translate}}</td>
+        <td *ngIf="transaction.type == 1">{{ 'page.sellBuy.sellType' | translate}}</td>
         <td>{{ transaction.cripto }}</td>
         <td>{{ transaction.criptoCount }}</td>
         <td>{{ transaction.operationAmount }}</td>
@@ -27,3 +27,17 @@
     </tbody>
     </table>
 </div>
+
+<div class="card showCard" style="cursor: pointer;" *ngFor="let transaction of transactions;">
+    <div class="card-body">
+      <h5 class="card-title" *ngIf="transaction.type == 1">{{ 'page.myTransactions.type' | translate}}: {{ 'page.sellBuy.sellType' | translate}}</h5>
+      <h5 class="card-title" *ngIf="transaction.type == 2">{{ 'page.myTransactions.type' | translate}}: {{ 'page.sellBuy.buyType' | translate}}</h5>
+      <p class="card-text text-danger" *ngIf="transaction.status == 3">{{ 'page.myTransactions.cancelled' | translate}}</p>
+      <p class="card-text text-success" *ngIf="transaction.status == 2">{{ 'page.myTransactions.confirmed' | translate}}</p>
+      <p class="card-text">{{ 'page.myTransactions.cripto' | translate}}: {{ transaction.cripto }}</p>
+      <p class="card-text">{{ 'page.myTransactions.criptoCount' | translate}}: {{ transaction.criptoCount }}</p>
+      <p class="card-text">{{ 'page.myTransactions.operationAmount' | translate}}: {{ transaction.operationAmount }}</p>
+      <div *ngIf="transaction.type == 1 && transaction.status == 1"><button class="btn btn-success" (click)="confirm(transaction)">{{ 'page.myTransactions.confirmReception' | translate}}</button> - <button class="btn btn-danger" (click)="cancel(transaction)">{{ 'page.myTransactions.cancel' | translate}}</button></div> 
+      <div *ngIf="transaction.type == 2"><button class="btn btn-success" (click)="confirm(transaction)">{{ 'page.myTransactions.confirmTransfer' | translate}}</button> - <button class="btn btn-danger" (click)="cancel(transaction)">{{ 'page.myTransactions.cancel' | translate}}</button></div>
+    </div>
+  </div>

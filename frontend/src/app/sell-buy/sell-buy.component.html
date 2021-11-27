@@ -1,7 +1,7 @@
 <h5 class="text-center">{{ 'page.sellBuy.title' | translate}}</h5>
 <br>
 
-<div class="col-auto">
+<div class="col-auto showTable">
     <table class="table table-striped">
     <thead>
     <tr>
@@ -18,8 +18,8 @@
     </thead>
     <tbody style="cursor: pointer;">
     <tr *ngFor="let activity of activities;" (click)="transaction(activity.id)">
-        <td *ngIf="activity.type == 1">Buy</td>
-        <td *ngIf="activity.type == 2">Sell</td>
+        <td *ngIf="activity.type == 1">{{ 'page.sellBuy.buyType' | translate}}</td>
+        <td *ngIf="activity.type == 2">{{ 'page.sellBuy.sellType' | translate}}</td>
         <td>{{ activity.dateTimeFormatted }}</td>
         <td>{{ activity.cripto }}</td>
         <td>{{ activity.criptoCount }}</td>
@@ -33,3 +33,19 @@
     </tbody>
     </table>
 </div>
+
+<div class="card showCard" style="cursor: pointer;" *ngFor="let activity of activities;">
+    <div class="card-body" (click)="transaction(activity.id)">
+      <h5 class="card-title" *ngIf="activity.type == 1">{{ 'page.sellBuy.type' | translate}}: {{ 'page.sellBuy.buyType' | translate}}</h5>
+      <h5 class="card-title" *ngIf="activity.type == 2">{{ 'page.sellBuy.type' | translate}}: {{ 'page.sellBuy.sellType' | translate}}</h5>
+      <p class="card-text">{{ 'page.criptos.date' | translate}}: {{ activity.dateTimeFormatted }}</p>
+      <p class="card-text">{{ 'page.sellBuy.cripto' | translate}}: {{ activity.cripto }}</p>
+      <p class="card-text">{{ 'page.sellBuy.criptoCount' | translate}}: {{ activity.criptoCount }}</p>
+      <p class="card-text">{{ 'page.sellBuy.criptoPrice' | translate}}: {{ activity.criptoPriceFormatted }}</p>
+      <p class="card-text">{{ 'page.sellBuy.operationAmount' | translate}}: {{ activity.operationAmountFormatted }} </p>
+      <p class="card-text">{{ 'page.transaction.user' | translate}}: {{ activity.user }} </p>
+      <p class="card-text">{{ 'page.sellBuy.operationCount' | translate}}: {{ activity.operationCount }} </p>
+      <p class="card-text" *ngIf="activity.reputationPoints != 0">{{ 'page.sellBuy.reputationPoints' | translate}}: {{ activity.reputationPoints }} </p>
+      <p class="card-text" *ngIf="activity.reputationPoints == 0">{{ 'page.sellBuy.noOperations' | translate}}</p>
+    </div>
+  </div>
