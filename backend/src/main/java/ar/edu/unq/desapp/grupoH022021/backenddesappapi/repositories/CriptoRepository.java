@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 import ar.edu.unq.desapp.grupoH022021.backenddesappapi.model.Cripto;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CriptoRepository extends CrudRepository<Cripto, Integer> {
 
 	Optional<Cripto> findById(Integer id);
